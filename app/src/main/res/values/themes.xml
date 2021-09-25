@@ -12,5 +12,9 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+
+        <item name="bottom_nav_background_color">@color/bottom_nav_background_color</item>
+        <item name="bottom_nav_selected_color">@color/bottom_nav_selected_color</item>
+        <item name="bottom_nav_not_selected_color">@color/bottom_nav_not_selected_color</item>
     </style>
 </resources>
