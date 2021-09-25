@@ -38,7 +38,6 @@ class HomeViewModel @Inject constructor(
     }
 
     fun search(domainTitle: String) = viewModelScope.launchWithLoadingOverlay(handler) {
-        delay(3000)
         _searchDomain.value = Resource.Loading()
 
         val time = System.currentTimeMillis()
