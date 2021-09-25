@@ -3,7 +3,10 @@ package com.example.whoishakaton.ui.search_history
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.viewModels
+import androidx.hilt.navigation.fragment.hiltNavGraphViewModels
+import com.example.whoishakaton.R
 import com.example.whoishakaton.databinding.FragmentSearchHistoryBinding
+import com.example.whoishakaton.ui.search.SearchViewModel
 import com.example.whoishakaton.utils.Resource
 import com.example.whoishakaton.utils.view_binding.ViewBindingFragment
 import dagger.hilt.android.AndroidEntryPoint
@@ -13,6 +16,7 @@ class SearchHistoryFragment : ViewBindingFragment<FragmentSearchHistoryBinding>(
     FragmentSearchHistoryBinding.inflate(it)
 }) {
 
+    private val searchViewModel: SearchViewModel by hiltNavGraphViewModels(R.id.navigation_main)
     val searchHistoryViewModel: SearchHistoryViewModel by viewModels()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

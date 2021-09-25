@@ -1,0 +1,19 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.google.android.material.progressindicator.CircularProgressIndicator
+        android:id="@+id/pb_loading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:indeterminate="true"
+        app:indicatorColor="?bottom_nav_selected_color"
+        app:indicatorSize="@dimen/progress_bar_size"
+        app:trackColor="#250A84FF"
+        app:trackCornerRadius="@dimen/corner_radius_xxsmall"
+        app:trackThickness="@dimen/progress_bar_thickness" />
+
+</RelativeLayout>

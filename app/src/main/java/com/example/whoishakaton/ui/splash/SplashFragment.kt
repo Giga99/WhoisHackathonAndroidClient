@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.navigation.fragment.findNavController
 import com.example.whoishakaton.databinding.FragmentSplashBinding
+import com.example.whoishakaton.utils.safeNavigate
 import com.example.whoishakaton.utils.view_binding.MainHandler
 import com.example.whoishakaton.utils.view_binding.ViewBindingFragment
 import dagger.hilt.android.AndroidEntryPoint
@@ -17,7 +18,7 @@ class SplashFragment : ViewBindingFragment<FragmentSplashBinding>({
         super.onViewCreated(view, savedInstanceState)
 
         MainHandler.post {
-            findNavController().navigate(SplashFragmentDirections.actionSplashFragmentToNavigationMain())
+            findNavController().safeNavigate(SplashFragmentDirections.actionSplashFragmentToNavigationMain())
         }
     }
 }

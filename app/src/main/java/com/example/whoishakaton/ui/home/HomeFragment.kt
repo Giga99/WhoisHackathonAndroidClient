@@ -4,7 +4,10 @@ import android.os.Bundle
 import android.view.View
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
+import androidx.hilt.navigation.fragment.hiltNavGraphViewModels
+import com.example.whoishakaton.R
 import com.example.whoishakaton.databinding.FragmentHomeBinding
+import com.example.whoishakaton.ui.search.SearchViewModel
 import com.example.whoishakaton.utils.Resource.*
 import com.example.whoishakaton.utils.view_binding.ViewBindingFragment
 import dagger.hilt.android.AndroidEntryPoint
@@ -14,8 +17,8 @@ class HomeFragment : ViewBindingFragment<FragmentHomeBinding>({
     FragmentHomeBinding.inflate(it)
 }) {
 
-    //    private val searchViewModel: SearchViewModel by hiltNavGraphViewModels(R.id.navigation_main)
-    private val searchViewModel: SearchViewModel by viewModels()
+    private val searchViewModel: SearchViewModel by hiltNavGraphViewModels(R.id.navigation_main)
+    private val homeViewModel: HomeViewModel by viewModels()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -28,7 +31,7 @@ class HomeFragment : ViewBindingFragment<FragmentHomeBinding>({
 
             etSearch.setOnFocusChangeListener { _, hasFocus ->
                 if (hasFocus) {
-                    searchViewModel.recentSearches.observe(viewLifecycleOwner, { result ->
+                    homeViewModel.recentSearches.observe(viewLifecycleOwner, { result ->
                         when (result) {
                             is Loading -> {
 
@@ -51,11 +54,11 @@ class HomeFragment : ViewBindingFragment<FragmentHomeBinding>({
             }
 
             etSearch.setOnEditorActionListener { v, _, _ ->
-                searchViewModel.search(v.text.toString())
+                if (v.text.isNotBlank()) homeViewModel.search(v.text.toString())
                 true
             }
 
-            searchViewModel.searchDomain.observe(viewLifecycleOwner, { result ->
+            homeViewModel.searchDomain.observe(viewLifecycleOwner, { result ->
                 when (result) {
                     is Loading -> {
 
