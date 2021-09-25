@@ -13,5 +13,5 @@ interface DomainDAO {
     suspend fun delete(domain: DomainEntity)
 
     @Query("SELECT * FROM DOMAIN_TABLE")
-    suspend fun getAllSavedDomains(): List<DomainEntity>
+    suspend fun getAllDomains(): List<DomainEntity>
 }
