@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">WHOIS Hakaton</string>
+
+    <!-- Activity region -->
+    <string name="home_fragment">Pocetna</string>
+    <string name="favorites_fragment">Omiljeno</string>
+    <string name="search_history_fragment">Istorija pretrage</string>
+    <!-- end region -->
 </resources>

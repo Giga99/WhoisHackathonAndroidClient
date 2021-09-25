@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Copyright (C) 2021 LotusFlare
+  ~ All Rights Reserved.
+  ~ Unauthorized copying and distribution of this file, via any medium is strictly prohibited.
+  -->
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@id/homeFragment"
+        android:icon="@drawable/ic_home"
+        android:menuCategory="secondary"
+        android:title="@string/home_fragment" />
+    <item
+        android:id="@id/favoritesFragment"
+        android:icon="@drawable/ic_star"
+        android:menuCategory="secondary"
+        android:title="@string/favorites_fragment" />
+    <item
+        android:id="@id/searchHistoryFragment"
+        android:icon="@drawable/ic_history"
+        android:menuCategory="secondary"
+        android:title="@string/search_history_fragment" />
+</menu>

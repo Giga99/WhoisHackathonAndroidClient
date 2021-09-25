@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (C) 2021 LotusFlare
+  ~ All Rights Reserved.
+  ~ Unauthorized copying and distribution of this file, via any medium is strictly prohibited.
+  -->
+
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_main"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.whoishakaton.ui.home.HomeFragment"
+        android:label="HomeFragment"
+        tools:layout="@layout/fragment_home"/>
+
+    <fragment
+        android:id="@+id/favoritesFragment"
+        android:name="com.example.whoishakaton.ui.favorites.FavoritesFragment"
+        android:label="FavoritesFragment"
+        tools:layout="@layout/fragment_favorites" />
+
+    <fragment
+        android:id="@+id/searchHistoryFragment"
+        android:name="com.example.whoishakaton.ui.search_history.SearchHistoryFragment"
+        android:label="SearchHistoryFragment"
+        tools:layout="@layout/fragment_search_history" />
+
+</navigation>
