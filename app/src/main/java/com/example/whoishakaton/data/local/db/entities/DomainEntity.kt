@@ -6,7 +6,21 @@ import com.example.whoishakaton.utils.DOMAIN_TABLE_NAME
 
 @Entity(tableName = DOMAIN_TABLE_NAME)
 data class DomainEntity(
-    @PrimaryKey(autoGenerate = true)
-    var id: Int? = null,
-    val title: String
+    @PrimaryKey(autoGenerate = false)
+    var id: String,
+    val domainId: String?,
+    val name: String,
+    val createdDate: String?,
+    val updatedDate: String?,
+    val expirationDate: String?,
+    val nameServers: String?,
+    val address: String?,
+    val postalCode: String?,
+    val registarIanaId: String?,
+    val registarName: String?,
+    val url: String?,
+    val abuseContactEmail: String?,
+    val abuseContactPhone: String?,
+    val registrantName: String?,
+    val whoIsResponse: String?
 )

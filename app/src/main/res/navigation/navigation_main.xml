@@ -44,6 +44,10 @@
         android:id="@+id/searchFragment"
         android:name="com.example.whoishakaton.ui.search.SearchFragment"
         android:label="SearchFragment"
-        tools:layout="@layout/fragment_search" />
+        tools:layout="@layout/fragment_search" >
+        <argument
+            android:name="domainName"
+            app:argType="string" />
+    </fragment>
 
 </navigation>

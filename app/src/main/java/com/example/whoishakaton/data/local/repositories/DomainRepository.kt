@@ -13,4 +13,6 @@ class DomainRepository @Inject constructor(
     suspend fun removeDomainFromFavorites(domain: DomainEntity) = domainDAO.delete(domain)
 
     suspend fun getAllFavoriteDomains() = domainDAO.getAllDomains()
+
+    suspend fun getDomainById(id: String) = domainDAO.getDomainById(id)
 }

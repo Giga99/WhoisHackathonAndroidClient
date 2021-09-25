@@ -7,6 +7,7 @@ import com.example.whoishakaton.data.local.db.DomainHistoryDAO
 import com.example.whoishakaton.data.local.db.WhoisDatabase
 import com.example.whoishakaton.data.remote.WhoisRetrofit
 import com.example.whoishakaton.data.remote.initChuckerInterceptor
+import com.example.whoishakaton.utils.BASE_URL
 import com.example.whoishakaton.utils.WHOIS_DATABASE_NAME
 import dagger.Module
 import dagger.Provides
@@ -44,7 +45,7 @@ object AppModule {
     @Singleton
     @Provides
     fun providesOkHttpClient(
-        context: Context
+        @ApplicationContext context: Context
     ): OkHttpClient = OkHttpClient.Builder().addInterceptor(initChuckerInterceptor(context)).build()
 
     // TODO add base URL
@@ -54,7 +55,7 @@ object AppModule {
         okHttpClient: OkHttpClient
     ): Retrofit = Retrofit.Builder()
         .addConverterFactory(MoshiConverterFactory.create())
-        .baseUrl("")
+        .baseUrl(BASE_URL)
         .client(okHttpClient)
         .build()
 

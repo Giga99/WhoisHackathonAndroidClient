@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.whoishakaton.domain.models.DomainHistoryUIModel
-import com.example.whoishakaton.domain.use_cases.SearchHistoryUseCase
+import com.example.whoishakaton.domain.use_cases.local.SearchHistoryUseCase
 import com.example.whoishakaton.utils.Resource
 import com.example.whoishakaton.utils.overlays_and_dialogs.GeneralEventsHandler
 import com.example.whoishakaton.utils.overlays_and_dialogs.GeneralEventsHandlerProvider

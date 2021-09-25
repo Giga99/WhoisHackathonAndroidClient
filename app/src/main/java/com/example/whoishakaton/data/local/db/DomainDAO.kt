@@ -14,4 +14,7 @@ interface DomainDAO {
 
     @Query("SELECT * FROM DOMAIN_TABLE")
     suspend fun getAllDomains(): List<DomainEntity>
+
+    @Query("SELECT * FROM DOMAIN_TABLE WHERE id = :id")
+    suspend fun getDomainById(id: String): DomainEntity
 }

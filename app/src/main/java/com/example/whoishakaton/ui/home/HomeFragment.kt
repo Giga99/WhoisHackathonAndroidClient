@@ -4,11 +4,11 @@ import android.os.Bundle
 import android.view.View
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
-import androidx.hilt.navigation.fragment.hiltNavGraphViewModels
-import com.example.whoishakaton.R
+import androidx.navigation.fragment.findNavController
 import com.example.whoishakaton.databinding.FragmentHomeBinding
-import com.example.whoishakaton.ui.search.SearchViewModel
-import com.example.whoishakaton.utils.Resource.*
+import com.example.whoishakaton.utils.Resource.Failure
+import com.example.whoishakaton.utils.Resource.Success
+import com.example.whoishakaton.utils.safeNavigate
 import com.example.whoishakaton.utils.view_binding.ViewBindingFragment
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -17,7 +17,6 @@ class HomeFragment : ViewBindingFragment<FragmentHomeBinding>({
     FragmentHomeBinding.inflate(it)
 }) {
 
-    private val searchViewModel: SearchViewModel by hiltNavGraphViewModels(R.id.navigation_main)
     private val homeViewModel: HomeViewModel by viewModels()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -25,7 +24,11 @@ class HomeFragment : ViewBindingFragment<FragmentHomeBinding>({
 
         with(viewBinding) {
             val adapter = RecentSearchesHomeRecyclerViewAdapter {
-
+                findNavController().safeNavigate(
+                    HomeFragmentDirections.actionHomeFragmentToSearchFragment(
+                        it.title
+                    )
+                )
             }
             rvRecentSearches.adapter = adapter
 
@@ -33,10 +36,6 @@ class HomeFragment : ViewBindingFragment<FragmentHomeBinding>({
                 if (hasFocus) {
                     homeViewModel.recentSearches.observe(viewLifecycleOwner, { result ->
                         when (result) {
-                            is Loading -> {
-
-                            }
-
                             is Success -> {
                                 adapter.submitList(result.data)
                                 llRecentSearches.isVisible = result.data.isNotEmpty()
@@ -54,25 +53,13 @@ class HomeFragment : ViewBindingFragment<FragmentHomeBinding>({
             }
 
             etSearch.setOnEditorActionListener { v, _, _ ->
-                if (v.text.isNotBlank()) homeViewModel.search(v.text.toString())
+                findNavController().safeNavigate(
+                    HomeFragmentDirections.actionHomeFragmentToSearchFragment(
+                        v.text.toString()
+                    )
+                )
                 true
             }
-
-            homeViewModel.searchDomain.observe(viewLifecycleOwner, { result ->
-                when (result) {
-                    is Loading -> {
-
-                    }
-
-                    is Success -> {
-                        println(result.data.title)
-                    }
-
-                    is Failure -> {
-                        println(result.throwable)
-                    }
-                }
-            })
         }
     }
 }
