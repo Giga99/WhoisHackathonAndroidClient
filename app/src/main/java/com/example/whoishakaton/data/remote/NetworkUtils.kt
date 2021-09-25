@@ -1,4 +1,4 @@
-package com.example.whoishakaton.data.network
+package com.example.whoishakaton.data.remote
 
 import android.content.Context
 import com.chuckerteam.chucker.api.ChuckerInterceptor

@@ -5,8 +5,8 @@ import androidx.room.Room
 import com.example.whoishakaton.data.local.db.DomainDAO
 import com.example.whoishakaton.data.local.db.DomainHistoryDAO
 import com.example.whoishakaton.data.local.db.WhoisDatabase
-import com.example.whoishakaton.data.network.WhoisRetrofit
-import com.example.whoishakaton.data.network.initChuckerInterceptor
+import com.example.whoishakaton.data.remote.WhoisRetrofit
+import com.example.whoishakaton.data.remote.initChuckerInterceptor
 import com.example.whoishakaton.utils.WHOIS_DATABASE_NAME
 import dagger.Module
 import dagger.Provides
@@ -30,7 +30,7 @@ object AppModule {
         context,
         WhoisDatabase::class.java,
         WHOIS_DATABASE_NAME
-    ).build()
+    ).fallbackToDestructiveMigration().build()
 
     @Singleton
     @Provides
