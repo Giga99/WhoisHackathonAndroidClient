@@ -1,4 +1,4 @@
-package com.example.whoishakaton
+package com.example.whoishakaton.ui
 
 import android.os.Bundle
 import com.example.whoishakaton.databinding.ActivityMainBinding

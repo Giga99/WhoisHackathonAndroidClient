@@ -2,7 +2,7 @@
 buildscript {
     ext {
         kotlin_version = '1.5.30'
-        hiltDaggerVersion = '2.37'
+        hiltDaggerVersion = '2.38.1'
         hiltVersion = '1.0.0-alpha03'
         hiltNavigationVersion = '1.0.0'
         navVersion = '2.3.5'
@@ -36,7 +36,7 @@ ext {
     recyclerViewVersion = '1.2.1'
 
     // coroutine
-    coroutineVersion = '1.4.2'
+    coroutineVersion = '1.5.1'
 
     // Glide
     glideVersion = '4.12.0'
@@ -52,4 +52,10 @@ ext {
 
     // Dagger
     daggerVersion = '2.34'
+
+    // Room
+    roomVersion = '2.3.0'
+
+    // Chucker
+    chuckerVersion = '3.4.0'
 }
