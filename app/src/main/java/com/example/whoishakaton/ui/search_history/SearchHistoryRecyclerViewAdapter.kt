@@ -1,17 +1,17 @@
-package com.example.whoishakaton.ui.home
+package com.example.whoishakaton.ui.search_history
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
-import com.example.whoishakaton.databinding.RecentSearchHomeItemBinding
+import com.example.whoishakaton.databinding.SearchHistoryItemBinding
 import com.example.whoishakaton.domain.models.DomainHistoryUIModel
 import com.example.whoishakaton.utils.getFormattedDateForMilliseconds
 import com.example.whoishakaton.utils.view_binding.RecyclerViewHolderBinding
 
-class RecentSearchesHomeRecyclerViewAdapter(private val callback: (DomainHistoryUIModel) -> Unit) :
-    ListAdapter<DomainHistoryUIModel, RecyclerViewHolderBinding<RecentSearchHomeItemBinding>>(object :
+class SearchHistoryRecyclerViewAdapter(private val callback: (DomainHistoryUIModel) -> Unit) :
+    ListAdapter<DomainHistoryUIModel, RecyclerViewHolderBinding<SearchHistoryItemBinding>>(object :
         DiffUtil.ItemCallback<DomainHistoryUIModel>() {
 
         override fun areItemsTheSame(oldItem: DomainHistoryUIModel, newItem: DomainHistoryUIModel) =
@@ -27,7 +27,7 @@ class RecentSearchesHomeRecyclerViewAdapter(private val callback: (DomainHistory
         parent: ViewGroup,
         viewType: Int
     ) = RecyclerViewHolderBinding(
-        RecentSearchHomeItemBinding.inflate(
+        SearchHistoryItemBinding.inflate(
             LayoutInflater.from(parent.context),
             parent,
             false
@@ -35,7 +35,7 @@ class RecentSearchesHomeRecyclerViewAdapter(private val callback: (DomainHistory
     )
 
     override fun onBindViewHolder(
-        holder: RecyclerViewHolderBinding<RecentSearchHomeItemBinding>,
+        holder: RecyclerViewHolderBinding<SearchHistoryItemBinding>,
         position: Int
     ) {
         val item = getItem(position)
@@ -44,7 +44,7 @@ class RecentSearchesHomeRecyclerViewAdapter(private val callback: (DomainHistory
             tvDomainName.text = item.title
             tvSearchDate.text = getFormattedDateForMilliseconds(item.date)
 
-            vHorizontalLine.isVisible = position != currentList.size - 1
+            vHorizontalLineBottom.isVisible = position == currentList.size - 1
 
             holder.itemView.setOnClickListener {
                 callback.invoke(item)

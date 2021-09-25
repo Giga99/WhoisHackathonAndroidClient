@@ -2,8 +2,8 @@ package com.example.whoishakaton.ui.home
 
 import android.os.Bundle
 import android.view.View
-import androidx.hilt.navigation.fragment.hiltNavGraphViewModels
-import com.example.whoishakaton.R
+import androidx.core.view.isVisible
+import androidx.fragment.app.viewModels
 import com.example.whoishakaton.databinding.FragmentHomeBinding
 import com.example.whoishakaton.utils.Resource.*
 import com.example.whoishakaton.utils.view_binding.ViewBindingFragment
@@ -14,7 +14,8 @@ class HomeFragment : ViewBindingFragment<FragmentHomeBinding>({
     FragmentHomeBinding.inflate(it)
 }) {
 
-    private val searchViewModel: SearchViewModel by hiltNavGraphViewModels(R.id.navigation_main)
+    //    private val searchViewModel: SearchViewModel by hiltNavGraphViewModels(R.id.navigation_main)
+    private val searchViewModel: SearchViewModel by viewModels()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -35,7 +36,7 @@ class HomeFragment : ViewBindingFragment<FragmentHomeBinding>({
 
                             is Success -> {
                                 adapter.submitList(result.data)
-                                llRecentSearches.visibility = View.VISIBLE
+                                llRecentSearches.isVisible = result.data.isNotEmpty()
                             }
 
                             is Failure -> {

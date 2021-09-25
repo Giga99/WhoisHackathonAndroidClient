@@ -14,6 +14,8 @@
         android:layout_marginEnd="@dimen/margin_smedium"
         android:background="@drawable/search_bar_background"
         android:drawableTint="?search_icon_tint"
+        android:hint="@string/search_bar_hint"
+        android:drawablePadding="@dimen/padding_small"
         android:padding="@dimen/padding_smedium"
         android:singleLine="true"
         app:drawableStartCompat="@drawable/ic_search"

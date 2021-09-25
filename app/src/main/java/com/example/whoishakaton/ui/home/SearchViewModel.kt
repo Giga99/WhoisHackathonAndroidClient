@@ -27,13 +27,7 @@ class SearchViewModel @Inject constructor(
 
     init {
         viewModelScope.launch {
-            val result = recentSearchesHomeUseCase.execute()
-
-            if (result is Resource.Success) {
-                _recentSearches.value = result
-            } else if (result is Resource.Failure) {
-                _recentSearches.value = result
-            }
+            _recentSearches.value = recentSearchesHomeUseCase.execute()
         }
     }
 

@@ -6,4 +6,10 @@
     <string name="favorites_fragment">Omiljeno</string>
     <string name="search_history_fragment">Istorija pretrage</string>
     <!-- end region -->
+
+    <!-- Home region -->
+    <string name="search_bar_hint">Pretrazite domen...</string>
+    <string name="search_history_title">Istorija pretrage</string>
+    <!-- end region -->
+
 </resources>
