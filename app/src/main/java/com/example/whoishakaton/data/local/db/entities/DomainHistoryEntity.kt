@@ -6,7 +6,7 @@ import com.example.whoishakaton.utils.DOMAIN_HISTORY_TABLE_NAME
 
 @Entity(tableName = DOMAIN_HISTORY_TABLE_NAME)
 data class DomainHistoryEntity(
-    @PrimaryKey(autoGenerate = true)
-    var id: Int? = null,
-    val title: String
+    @PrimaryKey(autoGenerate = false)
+    val title: String,
+    val date: Long
 )

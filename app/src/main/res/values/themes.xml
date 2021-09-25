@@ -16,5 +16,8 @@
         <item name="bottom_nav_background_color">@color/bottom_nav_background_color</item>
         <item name="bottom_nav_selected_color">@color/bottom_nav_selected_color</item>
         <item name="bottom_nav_not_selected_color">@color/bottom_nav_not_selected_color</item>
+
+        <item name="search_bar_background_color">@color/search_bar_background_color</item>
+        <item name="search_icon_tint">@color/search_icon_tint</item>
     </style>
 </resources>

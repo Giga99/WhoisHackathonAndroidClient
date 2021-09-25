@@ -1,6 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
+    <EditText
+        android:id="@+id/et_search"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_smedium"
+        android:layout_marginTop="@dimen/margin_xxxxxxxxlarge"
+        android:layout_marginEnd="@dimen/margin_smedium"
+        android:background="@drawable/search_bar_background"
+        android:drawableTint="?search_icon_tint"
+        android:padding="@dimen/padding_smedium"
+        android:singleLine="true"
+        app:drawableStartCompat="@drawable/ic_search"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/ll_recent_searches"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_smedium"
+        android:layout_marginEnd="@dimen/margin_smedium"
+        android:background="@drawable/recent_search_home_background"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/et_search">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_recent_searches"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_xstandard"
+            android:layout_marginBottom="@dimen/margin_xstandard"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:itemCount="5"
+            tools:listitem="@layout/recent_search_home_item" />
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

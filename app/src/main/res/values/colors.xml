@@ -11,4 +11,7 @@
     <color name="bottom_nav_background_color">#F9F9F9</color>
     <color name="bottom_nav_selected_color">#0A84FF</color>
     <color name="bottom_nav_not_selected_color">#AEAEB2</color>
+
+    <color name="search_bar_background_color">#D9D9D9</color>
+    <color name="search_icon_tint">#ACACAC</color>
 </resources>

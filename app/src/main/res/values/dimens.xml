@@ -78,4 +78,6 @@
     <dimen name="stroke_width_standard">2dp</dimen>
     <dimen name="stroke_width_medium">4dp</dimen>
     <dimen name="stroke_width_large">8dp</dimen>
+
+    <dimen name="toolbar_line_height">1dp</dimen>
 </resources>

@@ -60,6 +60,6 @@ object AppModule {
 
     @Singleton
     @Provides
-    fun provideWhoisRetrofit(retrofit: Retrofit): WhoisRetrofit =
+    fun providesWhoisRetrofit(retrofit: Retrofit): WhoisRetrofit =
         retrofit.create(WhoisRetrofit::class.java)
 }
