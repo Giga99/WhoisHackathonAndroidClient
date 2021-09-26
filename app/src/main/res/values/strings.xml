@@ -12,4 +12,10 @@
     <string name="search_history_title">Istorija pretrage</string>
     <!-- end region -->
 
+    <!-- Favorites region -->
+    <string name="favorite_domains">Omiljeni domeni</string>
+    <string name="domain_is_available">Domen je dostupan</string>
+    <string name="domain_expires">Domen istice %1$s</string>
+    <!-- end region -->
+
 </resources>

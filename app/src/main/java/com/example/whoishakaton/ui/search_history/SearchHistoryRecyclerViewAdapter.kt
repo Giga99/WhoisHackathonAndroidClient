@@ -42,7 +42,7 @@ class SearchHistoryRecyclerViewAdapter(private val callback: (DomainHistoryUIMod
 
         with(holder.viewBinding) {
             tvDomainName.text = item.title
-            tvSearchDate.text = getFormattedDateForMilliseconds(item.date)
+            tvSearchDate.text = item.date.getFormattedDateForMilliseconds()
 
             vHorizontalLineBottom.isVisible = position == currentList.size - 1
 

@@ -22,6 +22,24 @@ data class DomainInformationUIModel(
     val whoIsResponse: String?
 )
 
+fun DomainInformationUIModel.equal(other: DomainInformationUIModel) =
+    id == other.id
+            && domainId == other.domainId
+            && name == other.name
+            && createdDate == other.domainId
+            && updatedDate == other.updatedDate
+            && expirationDate == other.expirationDate
+            && nameServers == other.nameServers
+            && address == other.address
+            && postalCode == other.postalCode
+            && registarIanaId == other.registarIanaId
+            && registarName == other.registarName
+            && url == other.url
+            && abuseContactEmail == other.abuseContactEmail
+            && abuseContactPhone == other.abuseContactPhone
+            && registrantName == other.registrantName
+            && whoIsResponse == other.whoIsResponse
+
 fun SearchDomainResponse.fromResponseToUIModel() = DomainInformationUIModel(
     information.id,
     information.domainId,

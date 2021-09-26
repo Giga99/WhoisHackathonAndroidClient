@@ -42,7 +42,7 @@ class RecentSearchesHomeRecyclerViewAdapter(private val callback: (DomainHistory
 
         with(holder.viewBinding) {
             tvDomainName.text = item.title
-            tvSearchDate.text = getFormattedDateForMilliseconds(item.date)
+            tvSearchDate.text = item.date.getFormattedDateForMilliseconds()
 
             vHorizontalLine.isVisible = position != currentList.size - 1
 
