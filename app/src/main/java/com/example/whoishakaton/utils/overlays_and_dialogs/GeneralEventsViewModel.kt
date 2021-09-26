@@ -30,9 +30,6 @@ class GeneralEventsViewModel @Inject constructor() : ViewModel(), GeneralEventsH
     private var displayedDialog: AlertDialog? = null
     private var displayedFragmentDialog: DialogFragment? = null
 
-    private val _showBottomNav = MutableLiveData<Boolean>()
-    val showBottomNav: LiveData<Boolean> = _showBottomNav
-
     @Volatile
     private var numOfLoading = 0
 
@@ -45,21 +42,6 @@ class GeneralEventsViewModel @Inject constructor() : ViewModel(), GeneralEventsH
     override fun dismiss() {
         _overlaysAndDialogs.postOneTimeEvent(Dismiss)
     }
-
-//    override fun setBottomNavVisibility(bottomNavVisibility: BottomNavVisibility) {
-//
-//        _showBottomNav.value = when (bottomNavVisibility) {
-//
-//            BottomNavVisibility.NO_BOTTOM_NAV -> false
-//
-//            BottomNavVisibility.AUTHENTICATED_BOTTOM_NAV -> {
-//                // TODO this is temporary and not completely valid; isLoggedIn should be used
-//                isLoggedIn()
-//            }
-//
-//            BottomNavVisibility.VISIBLE_BOTTOM_NAV -> true
-//        }
-//    }
 
     fun handleDialogsAndOverlaysInActivity(
         activity: FragmentActivity

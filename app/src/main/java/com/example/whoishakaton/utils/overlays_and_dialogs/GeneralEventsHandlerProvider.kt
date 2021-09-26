@@ -56,10 +56,6 @@ class GeneralEventsHandlerDelegator : GeneralEventsHandler {
         generalEventsHandler?.get()?.endLoading()
     }
 
-//    override fun setBottomNavVisibility(bottomNavVisibility: BottomNavVisibility) {
-//        generalEventsHandler?.get()?.setBottomNavVisibility(bottomNavVisibility)
-//    }
-
     fun setValue(handler: GeneralEventsHandler) {
         if (generalEventsHandler?.get() == null)
             isInitializedDeferred = CompletableDeferred()

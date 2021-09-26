@@ -18,4 +18,10 @@
     <string name="domain_expires">Domen istice %1$s</string>
     <!-- end region -->
 
+    <!-- Search region -->
+    <string name="set_alarm_for_domain_expiry">Postavite alarm za istek domena</string>
+    <string name="alarm_domain_expires_title">Domen %1$s je istekao</string>
+    <string name="alarm_domain_expires_description">Domen sada mozete zakupiti</string>
+    <!-- end region -->
+
 </resources>

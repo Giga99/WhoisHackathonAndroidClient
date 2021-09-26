@@ -8,6 +8,7 @@ import com.example.whoishakaton.data.remote.responses.SearchDomainRequest
 import com.example.whoishakaton.domain.models.DomainHistoryUIModel
 import com.example.whoishakaton.domain.models.DomainInformationUIModel
 import com.example.whoishakaton.domain.use_cases.local.AddDomainToFavoritesUseCase
+import com.example.whoishakaton.domain.use_cases.local.AddFavoriteDomainUseCase
 import com.example.whoishakaton.domain.use_cases.local.AddNewSearchUseCase
 import com.example.whoishakaton.domain.use_cases.local.GetDomainByTitleUseCase
 import com.example.whoishakaton.domain.use_cases.remote.SearchDomainUseCase
@@ -26,12 +27,13 @@ class SearchViewModel @Inject constructor(
     private val addNewSearchUseCase: AddNewSearchUseCase,
     private val searchDomainUseCase: SearchDomainUseCase,
     private val addDomainToFavoritesUseCase: AddDomainToFavoritesUseCase,
-    private val getDomainByTitleUseCase: GetDomainByTitleUseCase
+    private val getDomainByTitleUseCase: GetDomainByTitleUseCase,
+    private val addFavoriteDomainUseCase: AddFavoriteDomainUseCase
 ) : ViewModel() {
 
     private val handler: GeneralEventsHandler = GeneralEventsHandlerProvider.generalEventsHandler
 
-    private lateinit var domain: DomainInformationUIModel
+    lateinit var domain: DomainInformationUIModel
     private val _searchDomain = MutableLiveData<Resource<DomainInformationUIModel>>()
     val searchDomain: LiveData<Resource<DomainInformationUIModel>> = _searchDomain
 
@@ -65,6 +67,16 @@ class SearchViewModel @Inject constructor(
 
         if (result is Resource.Success) {
             _addRemoveFavorite.value = OneTimeEvent(SuccessfulResult(result.data))
+        } else if (result is Resource.Failure) {
+            _addRemoveFavorite.value = OneTimeEvent(FailedResult(result.throwable))
+        }
+    }
+
+    fun addFavorite() = viewModelScope.launchWithLoadingOverlay(handler) {
+        val result = addFavoriteDomainUseCase.execute(domain)
+
+        if (result is Resource.Success) {
+            _addRemoveFavorite.value = OneTimeEvent(SuccessfulResult(true))
         } else if (result is Resource.Failure) {
             _addRemoveFavorite.value = OneTimeEvent(FailedResult(result.throwable))
         }

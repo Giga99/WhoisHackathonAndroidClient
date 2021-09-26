@@ -11,6 +11,4 @@ interface GeneralEventsHandler {
     fun dismiss()
 
     suspend fun endLoading()
-
-//    fun setBottomNavVisibility(bottomNavVisibility: BottomNavVisibility)
 }

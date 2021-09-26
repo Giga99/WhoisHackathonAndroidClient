@@ -7,8 +7,9 @@ import com.example.whoishakaton.data.local.db.DomainHistoryDAO
 import com.example.whoishakaton.data.local.db.WhoisDatabase
 import com.example.whoishakaton.data.remote.WhoisRetrofit
 import com.example.whoishakaton.data.remote.initChuckerInterceptor
-import com.example.whoishakaton.utils.BASE_URL
+import com.example.whoishakaton.utils.BASE_URL_WHOIS
 import com.example.whoishakaton.utils.WHOIS_DATABASE_NAME
+import com.example.whoishakaton.utils.WHOIS_SERVER
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -17,6 +18,7 @@ import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
+import javax.inject.Named
 import javax.inject.Singleton
 
 @Module
@@ -48,19 +50,20 @@ object AppModule {
         @ApplicationContext context: Context
     ): OkHttpClient = OkHttpClient.Builder().addInterceptor(initChuckerInterceptor(context)).build()
 
-    // TODO add base URL
     @Singleton
+    @Named(WHOIS_SERVER)
     @Provides
-    fun providesRetrofit(
+    fun providesWhoisRetrofitWhoisServer(
         okHttpClient: OkHttpClient
     ): Retrofit = Retrofit.Builder()
         .addConverterFactory(MoshiConverterFactory.create())
-        .baseUrl(BASE_URL)
+        .baseUrl(BASE_URL_WHOIS)
         .client(okHttpClient)
         .build()
 
     @Singleton
+    @Named(WHOIS_SERVER)
     @Provides
-    fun providesWhoisRetrofit(retrofit: Retrofit): WhoisRetrofit =
+    fun providesWhoisRetrofit(@Named(WHOIS_SERVER) retrofit: Retrofit): WhoisRetrofit =
         retrofit.create(WhoisRetrofit::class.java)
 }
