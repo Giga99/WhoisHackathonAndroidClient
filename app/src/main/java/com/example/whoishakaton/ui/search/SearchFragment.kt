@@ -16,10 +16,7 @@ import com.example.whoishakaton.databinding.FragmentSearchBinding
 import com.example.whoishakaton.ui.Receiver
 import com.example.whoishakaton.ui.search.SearchViewModel.AddRemoveFavoriteResult.FailedResult
 import com.example.whoishakaton.ui.search.SearchViewModel.AddRemoveFavoriteResult.SuccessfulResult
-import com.example.whoishakaton.utils.CustomAlertDialogBuilder
-import com.example.whoishakaton.utils.RANDOM
-import com.example.whoishakaton.utils.Resource
-import com.example.whoishakaton.utils.getFormattedDateForMilliseconds
+import com.example.whoishakaton.utils.*
 import com.example.whoishakaton.utils.view_binding.ViewBindingFragment
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -122,7 +119,8 @@ class SearchFragment : ViewBindingFragment<FragmentSearchBinding>({
 
         with(binding) {
             btnNotification.setOnClickListener {
-                val alarmManager = requireActivity().getSystemService(Context.ALARM_SERVICE) as AlarmManager
+                val alarmManager =
+                    requireActivity().getSystemService(Context.ALARM_SERVICE) as AlarmManager
 
                 val intent = Intent(requireContext(), Receiver::class.java)
                 intent.putExtra(
@@ -153,10 +151,18 @@ class SearchFragment : ViewBindingFragment<FragmentSearchBinding>({
 
                     searchViewModel.addFavorite()
                 }
+
+                dialog.dismiss()
             }
 
             btnEmail.setOnClickListener {
+                findNavController().safeNavigate(
+                    SearchFragmentDirections.actionSearchFragmentToEnterEmailFragment(
+                        searchFragmentArgs.domainName
+                    )
+                )
 
+                dialog.dismiss()
             }
         }
 

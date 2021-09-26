@@ -3,10 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Programming/AndroidProjects/WHOISHakaton/app/src/main/res/drawable-v24/enter_email_background.xml" value="0.2703125" />
         <entry key="..\:/Programming/AndroidProjects/WHOISHakaton/app/src/main/res/drawable-v24/feeling_lucky_button_background.xml" value="0.2703125" />
         <entry key="..\:/Programming/AndroidProjects/WHOISHakaton/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2703125" />
         <entry key="..\:/Programming/AndroidProjects/WHOISHakaton/app/src/main/res/drawable-v24/search_button_background.xml" value="0.2703125" />
         <entry key="..\:/Programming/AndroidProjects/WHOISHakaton/app/src/main/res/drawable/bottom_nav_item_color_selector.xml" value="0.2703125" />
+        <entry key="..\:/Programming/AndroidProjects/WHOISHakaton/app/src/main/res/drawable/choose_way_to_notify_dialog_background.xml" value="0.2703125" />
+        <entry key="..\:/Programming/AndroidProjects/WHOISHakaton/app/src/main/res/drawable/enter_email_background.xml" value="0.2703125" />
         <entry key="..\:/Programming/AndroidProjects/WHOISHakaton/app/src/main/res/drawable/favorites_selector.xml" value="0.2703125" />
         <entry key="..\:/Programming/AndroidProjects/WHOISHakaton/app/src/main/res/drawable/feeling_lucky_button_background.xml" value="0.2703125" />
         <entry key="..\:/Programming/AndroidProjects/WHOISHakaton/app/src/main/res/drawable/home_selector.xml" value="0.2703125" />
@@ -25,6 +28,7 @@
         <entry key="..\:/Programming/AndroidProjects/WHOISHakaton/app/src/main/res/layout/activity_main.xml" value="0.2" />
         <entry key="..\:/Programming/AndroidProjects/WHOISHakaton/app/src/main/res/layout/choose_way_to_notify_dialog.xml" value="0.2513586956521739" />
         <entry key="..\:/Programming/AndroidProjects/WHOISHakaton/app/src/main/res/layout/favorite_domain_item.xml" value="0.2554347826086957" />
+        <entry key="..\:/Programming/AndroidProjects/WHOISHakaton/app/src/main/res/layout/fragment_enter_email.xml" value="0.264" />
         <entry key="..\:/Programming/AndroidProjects/WHOISHakaton/app/src/main/res/layout/fragment_favorites.xml" value="0.264" />
         <entry key="..\:/Programming/AndroidProjects/WHOISHakaton/app/src/main/res/layout/fragment_home.xml" value="0.264" />
         <entry key="..\:/Programming/AndroidProjects/WHOISHakaton/app/src/main/res/layout/fragment_search.xml" value="0.25416666666666665" />

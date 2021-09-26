@@ -48,6 +48,18 @@
         <argument
             android:name="domainName"
             app:argType="string" />
+        <action
+            android:id="@+id/action_searchFragment_to_enterEmailFragment"
+            app:destination="@id/enterEmailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/enterEmailFragment"
+        android:name="com.example.whoishakaton.ui.enter_email.EnterEmailFragment"
+        android:label="EnterEmailFragment"
+        tools:layout="@layout/fragment_enter_email">
+        <argument
+            android:name="domain"
+            app:argType="string" />
     </fragment>
 
 </navigation>

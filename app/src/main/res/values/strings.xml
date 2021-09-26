@@ -32,12 +32,17 @@
     <string name="set_alarm_for_domain_expiry">Postavite alarm za istek domena</string>
     <string name="alarm_domain_expires_title">Domen %1$s je istekao</string>
     <string name="alarm_domain_expires_description">Domen sada možete zakupiti</string>
-    <string name="notify_me">Obavesti me kad domen ističe</string>
+    <string name="notify_me">Obavesti me kad domen istekne</string>
     <string name="rent_domain">Zakupite domen</string>
     <string name="available_domain">Ovaj domen je slobodan, ako želite da ga zakupite, kliknite na dugme ispod</string>
     <string name="way_to_notify">Kako želite da vas obavestimo?</string>
     <string name="notification">Notifikacija</string>
     <string name="email">Mejl</string>
+    <!-- end region -->
+
+    <!-- EnterEmail region -->
+    <string name="enter_email">Unesite mejl</string>
+    <string name="confirm">Potvrdi</string>
     <!-- end region -->
 
 </resources>
