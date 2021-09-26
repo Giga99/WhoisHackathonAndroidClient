@@ -1,8 +1,8 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.WHOISHakaton" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+    <style name="Theme.WHOISHakaton" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_500</item>
+        <item name="colorPrimary">?primary</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
@@ -13,11 +13,26 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
 
+        <item name="white">@color/white</item>
+        <item name="black">@color/black</item>
+        <item name="primary">@color/primary</item>
+
+        <item name="search_button_background_color">@color/search_button_background_color</item>
+        <item name="search_button_text_color">@color/search_button_text_color</item>
+        <item name="search_text_color">@color/search_text_color</item>
+        <item name="feeling_lucky_button_background_color">
+            @color/feeling_lucky_button_background_color
+        </item>
+
         <item name="bottom_nav_background_color">@color/bottom_nav_background_color</item>
         <item name="bottom_nav_selected_color">@color/bottom_nav_selected_color</item>
         <item name="bottom_nav_not_selected_color">@color/bottom_nav_not_selected_color</item>
+    </style>
 
-        <item name="search_bar_background_color">@color/search_bar_background_color</item>
-        <item name="search_icon_tint">@color/search_icon_tint</item>
+    <!-- Blue button theme -->
+    <style name="ThemeOverlay.App.ClassicButton" parent="">
+        <item name="colorPrimary">?feeling_lucky_button_background_color</item>
+        <item name="colorOnPrimary">?white</item>
+        <item name="background">@drawable/feeling_lucky_button_background</item>
     </style>
 </resources>

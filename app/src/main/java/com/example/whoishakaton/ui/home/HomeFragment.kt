@@ -6,6 +6,7 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.whoishakaton.databinding.FragmentHomeBinding
+import com.example.whoishakaton.utils.RANDOM
 import com.example.whoishakaton.utils.Resource.Failure
 import com.example.whoishakaton.utils.Resource.Success
 import com.example.whoishakaton.utils.safeNavigate
@@ -31,6 +32,31 @@ class HomeFragment : ViewBindingFragment<FragmentHomeBinding>({
                 )
             }
             rvRecentSearches.adapter = adapter
+
+            val popularDomainsAdapter = PopularDomainsRecyclerViewAdapter {
+                findNavController().safeNavigate(
+                    HomeFragmentDirections.actionHomeFragmentToSearchFragment(
+                        it.name
+                    )
+                )
+            }
+            rvMostSearched.adapter = popularDomainsAdapter
+
+            btnFeelingLucky.setOnClickListener {
+                findNavController().safeNavigate(
+                    HomeFragmentDirections.actionHomeFragmentToSearchFragment(
+                        RANDOM
+                    )
+                )
+            }
+
+            homeViewModel.popularDomains.observe(viewLifecycleOwner, { result ->
+                if (result is Success) {
+                    popularDomainsAdapter.submitList(result.data)
+                } else if (result is Failure) {
+                    println(result.throwable)
+                }
+            })
 
             etSearch.setOnFocusChangeListener { _, hasFocus ->
                 if (hasFocus) {

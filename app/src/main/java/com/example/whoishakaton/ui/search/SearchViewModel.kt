@@ -11,6 +11,7 @@ import com.example.whoishakaton.domain.use_cases.local.AddDomainToFavoritesUseCa
 import com.example.whoishakaton.domain.use_cases.local.AddFavoriteDomainUseCase
 import com.example.whoishakaton.domain.use_cases.local.AddNewSearchUseCase
 import com.example.whoishakaton.domain.use_cases.local.GetDomainByTitleUseCase
+import com.example.whoishakaton.domain.use_cases.remote.GetRandomDomainUseCase
 import com.example.whoishakaton.domain.use_cases.remote.SearchDomainUseCase
 import com.example.whoishakaton.ui.search.SearchViewModel.AddRemoveFavoriteResult.FailedResult
 import com.example.whoishakaton.ui.search.SearchViewModel.AddRemoveFavoriteResult.SuccessfulResult
@@ -20,6 +21,8 @@ import com.example.whoishakaton.utils.overlays_and_dialogs.GeneralEventsHandler
 import com.example.whoishakaton.utils.overlays_and_dialogs.GeneralEventsHandlerProvider
 import com.example.whoishakaton.utils.overlays_and_dialogs.launchWithLoadingOverlay
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
@@ -28,7 +31,8 @@ class SearchViewModel @Inject constructor(
     private val searchDomainUseCase: SearchDomainUseCase,
     private val addDomainToFavoritesUseCase: AddDomainToFavoritesUseCase,
     private val getDomainByTitleUseCase: GetDomainByTitleUseCase,
-    private val addFavoriteDomainUseCase: AddFavoriteDomainUseCase
+    private val addFavoriteDomainUseCase: AddFavoriteDomainUseCase,
+    private val getRandomDomainUseCase: GetRandomDomainUseCase
 ) : ViewModel() {
 
     private val handler: GeneralEventsHandler = GeneralEventsHandlerProvider.generalEventsHandler
@@ -54,6 +58,28 @@ class SearchViewModel @Inject constructor(
         }
 
         val favoriteResult = getDomainByTitleUseCase.execute(domainTitle)
+
+        if (favoriteResult is Resource.Success) {
+            _addRemoveFavorite.value = OneTimeEvent(SuccessfulResult(favoriteResult.data))
+        } else if (favoriteResult is Resource.Failure) {
+            _addRemoveFavorite.value = OneTimeEvent(FailedResult(favoriteResult.throwable))
+        }
+    }
+
+    fun getRandomDomain() = viewModelScope.launch {
+        delay(1000)
+        val result = getRandomDomainUseCase.execute()
+
+        if (result is Resource.Success) {
+            domain = result.data
+            _searchDomain.value = Resource.Success(result.data)
+            val time = System.currentTimeMillis()
+            addNewSearchUseCase.execute(DomainHistoryUIModel(result.data.name, time))
+        } else if (result is Resource.Failure) {
+            _searchDomain.value = Resource.Failure(result.throwable)
+        }
+
+        val favoriteResult = getDomainByTitleUseCase.execute(domain.name)
 
         if (favoriteResult is Resource.Success) {
             _addRemoveFavorite.value = OneTimeEvent(SuccessfulResult(favoriteResult.data))

@@ -13,6 +13,7 @@ import com.example.whoishakaton.databinding.FragmentSearchBinding
 import com.example.whoishakaton.ui.Receiver
 import com.example.whoishakaton.ui.search.SearchViewModel.AddRemoveFavoriteResult.FailedResult
 import com.example.whoishakaton.ui.search.SearchViewModel.AddRemoveFavoriteResult.SuccessfulResult
+import com.example.whoishakaton.utils.RANDOM
 import com.example.whoishakaton.utils.Resource
 import com.example.whoishakaton.utils.getFormattedDateForMilliseconds
 import com.example.whoishakaton.utils.view_binding.ViewBindingFragment
@@ -32,9 +33,16 @@ class SearchFragment : ViewBindingFragment<FragmentSearchBinding>({
 
         val alarmManager = requireActivity().getSystemService(Context.ALARM_SERVICE) as AlarmManager
 
-        searchViewModel.search(searchFragmentArgs.domainName)
 
         with(viewBinding) {
+            if (searchFragmentArgs.domainName == RANDOM) {
+                clContent.visibility = View.GONE
+                lavDices.visibility = View.VISIBLE
+                searchViewModel.getRandomDomain()
+            } else {
+                searchViewModel.search(searchFragmentArgs.domainName)
+            }
+
             ivFavoriteDomain.setOnClickListener {
                 searchViewModel.addRemoveFavorite()
             }
@@ -72,6 +80,8 @@ class SearchFragment : ViewBindingFragment<FragmentSearchBinding>({
             }
 
             searchViewModel.searchDomain.observe(viewLifecycleOwner, { result ->
+                clContent.visibility = View.VISIBLE
+                lavDices.visibility = View.GONE
                 if (result is Resource.Success) {
                     tvDomainName.text = result.data.name
                     tvDomainExpiredDate.text =

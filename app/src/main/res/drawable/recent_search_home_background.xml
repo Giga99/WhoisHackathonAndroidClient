@@ -6,7 +6,7 @@
 
     <stroke
         android:width="@dimen/stroke_width_standard"
-        android:color="?search_bar_background_color" />
+        android:color="?search_button_background_color" />
 
     <corners
         android:bottomLeftRadius="@dimen/corner_radius_xhsmall"

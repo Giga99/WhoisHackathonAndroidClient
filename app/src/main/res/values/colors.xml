@@ -8,10 +8,14 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <color name="bottom_nav_background_color">#F9F9F9</color>
-    <color name="bottom_nav_selected_color">#0A84FF</color>
-    <color name="bottom_nav_not_selected_color">#AEAEB2</color>
+    <color name="primary">#2A8DFA</color>
 
-    <color name="search_bar_background_color">#D9D9D9</color>
-    <color name="search_icon_tint">#ACACAC</color>
+    <color name="search_button_background_color">#D7F3F2</color>
+    <color name="search_button_text_color">#0047FF</color>
+    <color name="search_text_color">#1288F4</color>
+    <color name="feeling_lucky_button_background_color">#8CEDD0</color>
+
+    <color name="bottom_nav_background_color">#F5F5F5</color>
+    <color name="bottom_nav_selected_color">#2A8DFA</color>
+    <color name="bottom_nav_not_selected_color">#C4C4C4</color>
 </resources>

@@ -10,6 +10,9 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/margin_small"
+        android:fontFamily="@font/montserratregular"
+        android:textColor="?search_text_color"
+        android:textSize="@dimen/text_size_small"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/tv_search_date"
         app:layout_constraintStart_toStartOf="parent"
@@ -21,6 +24,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/margin_small"
+        android:fontFamily="@font/montserratregular"
+        android:textColor="?search_text_color"
+        android:textSize="@dimen/text_size_small"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -30,7 +36,7 @@
         android:id="@+id/v_horizontal_line"
         android:layout_width="match_parent"
         android:layout_height="@dimen/toolbar_line_height"
-        android:background="?search_bar_background_color"
+        android:background="?search_button_background_color"
         app:layout_constraintBottom_toBottomOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

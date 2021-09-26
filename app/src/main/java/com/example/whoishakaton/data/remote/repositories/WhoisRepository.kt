@@ -12,4 +12,8 @@ class WhoisRepository @Inject constructor(
 
     suspend fun searchDomain(domainRequest: SearchDomainRequest) =
         whoisRetrofit.searchDomain(domainRequest.title)
+
+    suspend fun getPopularDomains() = whoisRetrofit.getPopularDomains()
+
+    suspend fun getRandomDomain() = whoisRetrofit.getRandomDomain()
 }

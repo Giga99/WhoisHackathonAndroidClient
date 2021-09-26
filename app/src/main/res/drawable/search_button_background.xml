@@ -4,7 +4,7 @@
     <item android:state_focused="false">
         <shape android:shape="rectangle">
 
-            <solid android:color="?white" />
+            <solid android:color="?search_button_background_color" />
 
             <corners android:radius="@dimen/corner_radius_xxxsmall" />
 
@@ -14,7 +14,7 @@
     <item android:state_focused="true">
         <shape android:shape="rectangle">
 
-            <solid android:color="?white" />
+            <solid android:color="?search_button_background_color" />
 
             <corners android:topLeftRadius="@dimen/corner_radius_xxxsmall" android:topRightRadius="@dimen/corner_radius_xxxsmall" />
 

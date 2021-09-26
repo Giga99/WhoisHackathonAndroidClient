@@ -2,13 +2,20 @@
     <string name="app_name">WHOIS Hakaton</string>
 
     <!-- Activity region -->
-    <string name="home_fragment">Pocetna</string>
+    <string name="home_fragment">Početna</string>
     <string name="favorites_fragment">Omiljeno</string>
     <string name="search_history_fragment">Istorija pretrage</string>
     <!-- end region -->
 
     <!-- Home region -->
-    <string name="search_bar_hint">Pretrazite domen...</string>
+    <string name="home_fragment_title">Pronađite informacije o bilo kom domenu</string>
+    <string name="feeling_lucky">Iznenadi me</string>
+    <string name="search_bar_hint">Pretražite domen...</string>
+    <string name="search_bar_button_text">PRETRAŽI</string>
+    <string name="most_searched_title">Najčešće pretraživano</string>
+    <!-- end region -->
+
+    <!-- Search History region -->
     <string name="search_history_title">Istorija pretrage</string>
     <!-- end region -->
 

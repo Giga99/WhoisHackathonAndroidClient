@@ -7,7 +7,7 @@ data class SearchDomainRequest(
 )
 
 @JsonClass(generateAdapter = true)
-data class SearchDomainResponse(
+data class DomainResponse(
     val id: String,
     val domainId: String?,
     val name: String,

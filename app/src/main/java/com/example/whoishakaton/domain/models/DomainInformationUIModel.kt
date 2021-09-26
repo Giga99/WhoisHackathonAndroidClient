@@ -1,7 +1,7 @@
 package com.example.whoishakaton.domain.models
 
 import com.example.whoishakaton.data.local.db.entities.DomainEntity
-import com.example.whoishakaton.data.remote.responses.SearchDomainResponse
+import com.example.whoishakaton.data.remote.responses.DomainResponse
 
 data class DomainInformationUIModel(
     val id: String,
@@ -40,7 +40,7 @@ fun DomainInformationUIModel.equal(other: DomainInformationUIModel) =
             && registrantName == other.registrantName
             && whoIsResponse == other.whoIsResponse
 
-fun SearchDomainResponse.fromResponseToUIModel() = DomainInformationUIModel(
+fun DomainResponse.fromResponseToUIModel() = DomainInformationUIModel(
     id,
     domainId,
     name,

@@ -5,26 +5,16 @@
   -->
 
 <resources>
-    <attr name="primary" format="color"/>
-    <attr name="accentDark" format="color"/>
-    <attr name="accentLight" format="color"/>
-    <attr name="highlight" format="color"/>
-    <attr name="neutralA0" format="color" />
-    <attr name="neutralA1" format="color" />
-    <attr name="neutralA2" format="color" />
-    <attr name="neutralA3" format="color" />
-    <attr name="neutralA4" format="color" />
-    <attr name="neutralA5" format="color" />
-    <attr name="neutralB0" format="color" />
-    <attr name="neutralB1" format="color" />
-    <attr name="neutralB2" format="color" />
-    <attr name="absoluteBlack" format="color"/>
-    <attr name="absoluteWhite" format="color"/>
+    <attr name="white" format="color" />
+    <attr name="black" format="color" />
+    <attr name="primary" format="color" />
+
+    <attr name="search_button_background_color" format="color" />
+    <attr name="search_button_text_color" format="color" />
+    <attr name="search_text_color" format="color" />
+    <attr name="feeling_lucky_button_background_color" format="color" />
 
     <attr name="bottom_nav_background_color" format="color" />
     <attr name="bottom_nav_selected_color" format="color" />
     <attr name="bottom_nav_not_selected_color" format="color" />
-
-    <attr name="search_bar_background_color" format="color" />
-    <attr name="search_icon_tint" format="color" />
 </resources>

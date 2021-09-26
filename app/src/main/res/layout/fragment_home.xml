@@ -1,50 +1,171 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
-    <EditText
-        android:id="@+id/et_search"
-        android:layout_width="0dp"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/margin_smedium"
-        android:layout_marginTop="@dimen/margin_xxxxxxxxlarge"
-        android:layout_marginEnd="@dimen/margin_smedium"
-        android:background="@drawable/search_bar_background"
-        android:drawableTint="?search_icon_tint"
-        android:hint="@string/search_bar_hint"
-        android:drawablePadding="@dimen/padding_small"
-        android:padding="@dimen/padding_smedium"
-        android:singleLine="true"
-        app:drawableStartCompat="@drawable/ic_search"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:background="?primary">
 
-    <LinearLayout
-        android:id="@+id/ll_recent_searches"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/margin_smedium"
-        android:layout_marginEnd="@dimen/margin_smedium"
-        android:background="@drawable/recent_search_home_background"
-        android:visibility="gone"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/et_search">
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_recent_searches"
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/tv_home_fragment_title"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_xstandard"
-            android:layout_marginBottom="@dimen/margin_xstandard"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            tools:itemCount="5"
-            tools:listitem="@layout/recent_search_home_item" />
+            android:layout_marginStart="@dimen/margin_medium"
+            android:layout_marginTop="@dimen/margin_xxxlarge"
+            android:layout_marginEnd="@dimen/margin_medium"
+            android:fontFamily="@font/montserratregular"
+            android:gravity="start"
+            android:text="@string/home_fragment_title"
+            android:textColor="?white"
+            android:textSize="@dimen/text_size_xlarge"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    </LinearLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_search"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_standard"
+            android:layout_marginTop="@dimen/margin_medium"
+            android:layout_marginEnd="@dimen/margin_standard"
+            android:background="@drawable/search_bar_background"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_home_fragment_title">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <EditText
+                android:id="@+id/et_search"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:backgroundTint="?white"
+                android:fontFamily="@font/montserratregular"
+                android:hint="@string/search_bar_hint"
+                android:paddingStart="@dimen/padding_smedium"
+                android:paddingTop="@dimen/padding_smedium"
+                android:paddingEnd="@dimen/padding_smedium"
+                android:paddingBottom="@dimen/padding_smedium"
+                android:singleLine="true"
+                android:textColor="?search_text_color"
+                android:textSize="@dimen/text_size_large"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/ll_search"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <LinearLayout
+                android:id="@+id/ll_search"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:background="@drawable/search_button_background"
+                android:gravity="center"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="@id/et_search"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/et_search">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_xstandard"
+                    app:srcCompat="@drawable/ic_search" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_small"
+                    android:layout_marginEnd="@dimen/margin_small"
+                    android:fontFamily="@font/montserratsemibold"
+                    android:text="@string/search_bar_button_text"
+                    android:textColor="?search_button_text_color" />
+
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <Button
+            android:id="@+id/btn_feeling_lucky"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_medium"
+            android:background="@drawable/feeling_lucky_button_background"
+            android:fontFamily="@font/montserratsemibold"
+            android:text="@string/feeling_lucky"
+            android:textColor="?white"
+            android:textSize="@dimen/text_size_standard"
+            android:theme="@style/ThemeOverlay.App.ClassicButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cl_search" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_xxxlarge"
+            android:background="@drawable/most_searched_background"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btn_feeling_lucky">
+
+            <TextView
+                android:id="@+id/tv_most_searched_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_medium"
+                android:fontFamily="@font/montserratsemibold"
+                android:gravity="start"
+                android:text="@string/most_searched_title"
+                android:textColor="?primary"
+                android:textSize="@dimen/text_size_xxlarge"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_most_searched"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_medium"
+                android:layout_marginTop="@dimen/margin_medium"
+                android:layout_marginEnd="@dimen/margin_medium"
+                android:nestedScrollingEnabled="false"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_most_searched_title"
+                tools:itemCount="5"
+                tools:listitem="@layout/most_searched_item" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_recent_searches"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_standard"
+            android:layout_marginEnd="@dimen/margin_standard"
+            android:background="@drawable/recent_search_home_background"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cl_search">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_recent_searches"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:itemCount="5"
+                tools:listitem="@layout/recent_search_home_item" />
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>

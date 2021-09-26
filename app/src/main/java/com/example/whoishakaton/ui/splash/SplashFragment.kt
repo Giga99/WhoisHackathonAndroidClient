@@ -21,7 +21,7 @@ class SplashFragment : ViewBindingFragment<FragmentSplashBinding>({
         super.onViewCreated(view, savedInstanceState)
 
         CoroutineScope(Dispatchers.Main).launch {
-            delay(5000)
+            delay(2500)
             findNavController().safeNavigate(SplashFragmentDirections.actionSplashFragmentToNavigationMain())
         }
     }
