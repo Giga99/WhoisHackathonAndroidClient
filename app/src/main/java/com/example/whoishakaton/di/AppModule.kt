@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.room.Room
 import com.example.whoishakaton.data.local.db.DomainDAO
 import com.example.whoishakaton.data.local.db.DomainHistoryDAO
+import com.example.whoishakaton.data.local.db.LanguageDAO
 import com.example.whoishakaton.data.local.db.WhoisDatabase
 import com.example.whoishakaton.data.remote.WhoisRetrofit
 import com.example.whoishakaton.data.remote.initChuckerInterceptor
@@ -43,6 +44,11 @@ object AppModule {
     @Provides
     fun providesDomainHistoryDAO(whoisDatabase: WhoisDatabase): DomainHistoryDAO =
         whoisDatabase.getDomainHistoryDAO()
+
+    @Singleton
+    @Provides
+    fun providesLanguageDAO(whoisDatabase: WhoisDatabase): LanguageDAO =
+        whoisDatabase.getLanguageDAO()
 
     @Singleton
     @Provides

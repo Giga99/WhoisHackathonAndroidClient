@@ -6,6 +6,8 @@ const val DOMAIN_TABLE_NAME = "domain_table"
 
 const val DOMAIN_HISTORY_TABLE_NAME = "domain_history_table"
 
+const val LANGUAGE_TABLE_NAME = "language_table"
+
 const val BASE_URL_WHOIS = "http://hakaton.redtech.cc/"
 
 const val BASE_URL_FIREBASE = "https://fcm.googleapis.com/"

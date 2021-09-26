@@ -11,6 +11,19 @@
         android:background="?primary">
 
         <TextView
+            android:id="@+id/tv_language"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_standard"
+            android:textAllCaps="true"
+            android:textColor="?white"
+            android:textSize="@dimen/text_size_standard"
+            android:fontFamily="@font/montserratsemibold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="LAT" />
+
+        <TextView
             android:id="@+id/tv_home_fragment_title"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -51,7 +64,7 @@
                 android:paddingBottom="@dimen/padding_smedium"
                 android:singleLine="true"
                 android:textColor="?search_text_color"
-                android:textSize="@dimen/text_size_large"
+                android:textSize="@dimen/text_size_xmedium"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/ll_search"
                 app:layout_constraintStart_toStartOf="parent"
@@ -75,6 +88,7 @@
                     app:srcCompat="@drawable/ic_search" />
 
                 <TextView
+                    android:id="@+id/btn_search_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margin_small"

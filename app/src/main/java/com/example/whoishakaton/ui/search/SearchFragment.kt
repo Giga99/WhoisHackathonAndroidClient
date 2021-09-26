@@ -7,12 +7,14 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.whoishakaton.R
 import com.example.whoishakaton.databinding.ChooseWayToNotifyDialogBinding
 import com.example.whoishakaton.databinding.FragmentSearchBinding
+import com.example.whoishakaton.ui.LanguageViewModel
 import com.example.whoishakaton.ui.Receiver
 import com.example.whoishakaton.ui.search.SearchViewModel.AddRemoveFavoriteResult.FailedResult
 import com.example.whoishakaton.ui.search.SearchViewModel.AddRemoveFavoriteResult.SuccessfulResult
@@ -25,6 +27,7 @@ class SearchFragment : ViewBindingFragment<FragmentSearchBinding>({
     FragmentSearchBinding.inflate(it)
 }) {
 
+    private val languageViewModel: LanguageViewModel by activityViewModels()
     private val searchViewModel: SearchViewModel by viewModels()
 
     private val searchFragmentArgs: SearchFragmentArgs by navArgs()
@@ -33,6 +36,12 @@ class SearchFragment : ViewBindingFragment<FragmentSearchBinding>({
         super.onViewCreated(view, savedInstanceState)
 
         with(viewBinding) {
+            languageViewModel.context.observe(viewLifecycleOwner, {
+                btnSetAlarm.text = it.resources.getString(R.string.notify_me)
+                btnRentDomain.text = it.resources.getString(R.string.rent_domain)
+                tvAvailableDomain.text = it.resources.getString(R.string.available_domain)
+            })
+
             if (searchFragmentArgs.domainName == RANDOM) {
                 clContent.visibility = View.GONE
                 lavDices.visibility = View.VISIBLE
@@ -166,6 +175,12 @@ class SearchFragment : ViewBindingFragment<FragmentSearchBinding>({
             .create()
 
         with(binding) {
+            languageViewModel.context.observe(viewLifecycleOwner, {
+                tvDialogTitle.text = it.resources.getString(R.string.way_to_notify)
+                btnNotification.text = it.resources.getString(R.string.notification)
+                btnEmail.text = it.resources.getString(R.string.email)
+            })
+
             btnNotification.setOnClickListener {
                 val alarmManager =
                     requireActivity().getSystemService(Context.ALARM_SERVICE) as AlarmManager

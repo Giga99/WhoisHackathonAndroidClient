@@ -22,6 +22,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import java.util.*
 
 @AndroidEntryPoint
 class MainActivity : Activity<ActivityMainBinding>({
@@ -29,9 +30,17 @@ class MainActivity : Activity<ActivityMainBinding>({
 }) {
 
     private val generalEventsViewModel: GeneralEventsViewModel by viewModels()
+    private val languageViewModel: LanguageViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        languageViewModel.language.observe(this, {
+            val locale = Locale(it)
+            val conf = resources.configuration
+            conf.setLocale(locale)
+            languageViewModel.setContext(this.createConfigurationContext(conf))
+        })
 
         GeneralEventsHandlerProvider.setHandler(generalEventsViewModel)
         generalEventsViewModel.handleDialogsAndOverlaysInActivity(this)
