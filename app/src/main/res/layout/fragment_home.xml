@@ -15,10 +15,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/margin_standard"
+            android:fontFamily="@font/montserratsemibold"
             android:textAllCaps="true"
             android:textColor="?white"
             android:textSize="@dimen/text_size_standard"
-            android:fontFamily="@font/montserratsemibold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="LAT" />
@@ -58,10 +58,7 @@
                 android:backgroundTint="?white"
                 android:fontFamily="@font/montserratregular"
                 android:hint="@string/search_bar_hint"
-                android:paddingStart="@dimen/padding_smedium"
-                android:paddingTop="@dimen/padding_smedium"
-                android:paddingEnd="@dimen/padding_smedium"
-                android:paddingBottom="@dimen/padding_smedium"
+                android:padding="@dimen/padding_standard"
                 android:singleLine="true"
                 android:textColor="?search_text_color"
                 android:textSize="@dimen/text_size_xmedium"
@@ -91,11 +88,12 @@
                     android:id="@+id/btn_search_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/margin_small"
-                    android:layout_marginEnd="@dimen/margin_small"
+                    android:layout_marginStart="@dimen/margin_xxsmall"
+                    android:layout_marginEnd="@dimen/margin_standard"
                     android:fontFamily="@font/montserratsemibold"
                     android:text="@string/search_bar_button_text"
-                    android:textColor="?search_button_text_color" />
+                    android:textColor="?search_button_text_color"
+                    android:textSize="@dimen/text_size_small" />
 
             </LinearLayout>
 
