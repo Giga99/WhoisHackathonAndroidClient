@@ -50,6 +50,15 @@ class HomeFragment : ViewBindingFragment<FragmentHomeBinding>({
                 )
             }
 
+            llSearch.setOnClickListener {
+                if (etSearch.text.isNotBlank())
+                    findNavController().safeNavigate(
+                        HomeFragmentDirections.actionHomeFragmentToSearchFragment(
+                            etSearch.text.toString()
+                        )
+                    )
+            }
+
             homeViewModel.popularDomains.observe(viewLifecycleOwner, { result ->
                 if (result is Success) {
                     popularDomainsAdapter.submitList(result.data)

@@ -16,4 +16,7 @@ class WhoisRepository @Inject constructor(
     suspend fun getPopularDomains() = whoisRetrofit.getPopularDomains()
 
     suspend fun getRandomDomain() = whoisRetrofit.getRandomDomain()
+
+    suspend fun requestNotificationByEmail(domain: String, email: String) =
+        whoisRetrofit.requestNotificationByEmail(domain, email)
 }

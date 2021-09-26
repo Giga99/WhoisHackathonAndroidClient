@@ -3,14 +3,8 @@
     <style name="Theme.WHOISHakaton" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">?primary</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
-        <item name="colorOnPrimary">@color/white</item>
-        <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/teal_200</item>
-        <item name="colorSecondaryVariant">@color/teal_700</item>
-        <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <item name="android:statusBarColor" tools:targetApi="l">?colorPrimary</item>
         <!-- Customize your theme here. -->
 
         <item name="white">@color/white</item>
@@ -27,12 +21,21 @@
         <item name="bottom_nav_background_color">@color/bottom_nav_background_color</item>
         <item name="bottom_nav_selected_color">@color/bottom_nav_selected_color</item>
         <item name="bottom_nav_not_selected_color">@color/bottom_nav_not_selected_color</item>
+
+        <item name="domain_details_text_color">@color/domain_details_text_color</item>
     </style>
 
-    <!-- Blue button theme -->
     <style name="ThemeOverlay.App.ClassicButton" parent="">
         <item name="colorPrimary">?feeling_lucky_button_background_color</item>
         <item name="colorOnPrimary">?white</item>
         <item name="background">@drawable/feeling_lucky_button_background</item>
+        <item name="textAllCaps">false</item>
+    </style>
+
+    <style name="ThemeOverlay.App.ClassicButtonDomainDetails" parent="">
+        <item name="colorPrimary">?primary</item>
+        <item name="colorOnPrimary">?white</item>
+        <item name="background">@drawable/feeling_lucky_button_background</item>
+        <item name="textAllCaps">false</item>
     </style>
 </resources>

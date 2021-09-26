@@ -17,4 +17,6 @@
     <attr name="bottom_nav_background_color" format="color" />
     <attr name="bottom_nav_selected_color" format="color" />
     <attr name="bottom_nav_not_selected_color" format="color" />
+
+    <attr name="domain_details_text_color" format="color" />
 </resources>

@@ -18,4 +18,6 @@
     <color name="bottom_nav_background_color">#F5F5F5</color>
     <color name="bottom_nav_selected_color">#2A8DFA</color>
     <color name="bottom_nav_not_selected_color">#C4C4C4</color>
+
+    <color name="domain_details_text_color">#797979</color>
 </resources>

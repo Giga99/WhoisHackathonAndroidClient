@@ -16,4 +16,10 @@ interface WhoisRetrofit {
 
     @GET("WhoIs/random")
     suspend fun getRandomDomain(): DomainResponse
+
+    @GET("WhoIs/email")
+    suspend fun requestNotificationByEmail(
+        @Query("domainName") domain: String,
+        @Query("email") email: String
+    ): Unit
 }
