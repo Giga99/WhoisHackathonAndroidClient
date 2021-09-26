@@ -10,7 +10,7 @@ import com.example.whoishakaton.data.local.db.entities.DomainHistoryEntity
         DomainEntity::class,
         DomainHistoryEntity::class
     ],
-    version = 1
+    version = 2
 )
 abstract class WhoisDatabase : RoomDatabase() {
 

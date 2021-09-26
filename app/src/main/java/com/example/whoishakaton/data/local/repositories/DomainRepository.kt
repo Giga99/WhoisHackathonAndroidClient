@@ -15,4 +15,6 @@ class DomainRepository @Inject constructor(
     suspend fun getAllFavoriteDomains() = domainDAO.getAllDomains()
 
     suspend fun getDomainById(id: String) = domainDAO.getDomainById(id)
+
+    suspend fun getDomainByTitle(title: String) = domainDAO.getDomainByTitle(title)
 }

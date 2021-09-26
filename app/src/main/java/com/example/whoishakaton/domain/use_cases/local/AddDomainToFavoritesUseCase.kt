@@ -10,10 +10,16 @@ class AddDomainToFavoritesUseCase @Inject constructor(
     private val domainRepository: DomainRepository
 ) {
 
-    suspend fun execute(domainInformationUIModel: DomainInformationUIModel): Resource<Unit> =
+    suspend fun execute(domainInformationUIModel: DomainInformationUIModel): Resource<Boolean> =
         try {
-            domainRepository.addDomainToFavorites(domainInformationUIModel.fromUIModelToEntity())
-            Resource.Success(Unit)
+            val domain = domainInformationUIModel.fromUIModelToEntity()
+            val entity = domainRepository.getDomainById(domainInformationUIModel.id)
+
+            if (entity == null)
+                domainRepository.addDomainToFavorites(domain)
+            else
+                domainRepository.removeDomainFromFavorites(domain)
+            Resource.Success(entity == null)
         } catch (e: Exception) {
             Resource.Failure(e)
         }
