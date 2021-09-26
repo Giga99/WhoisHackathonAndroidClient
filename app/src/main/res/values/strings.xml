@@ -17,6 +17,7 @@
 
     <!-- Search History region -->
     <string name="search_history_title">Istorija pretrage</string>
+    <string name="search_date">Pretraženo %1$s</string>
     <!-- end region -->
 
     <!-- Favorites region -->

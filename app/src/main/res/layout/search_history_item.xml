@@ -3,15 +3,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:paddingTop="@dimen/padding_medium">
 
     <TextView
         android:id="@+id/tv_domain_name"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/margin_small"
-        android:textSize="@dimen/text_size_medium"
+        android:layout_marginEnd="@dimen/margin_standard"
+        android:fontFamily="@font/montserratsemibold"
+        android:textColor="?search_text_color"
+        android:textSize="@dimen/text_size_large"
         android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@id/iv_right_arrow"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="facebook.com" />
@@ -20,11 +24,14 @@
         android:id="@+id/tv_search_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/margin_small"
+        android:layout_marginTop="@dimen/margin_xxsmall"
+        android:fontFamily="@font/montserratregular"
+        android:textColor="?search_text_color"
+        android:textSize="@dimen/text_size_medium"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_domain_name"
-        tools:text="21/01/2021" />
+        tools:text="Pretrazeno 21/01/2021" />
 
     <ImageView
         android:id="@+id/iv_right_arrow"
@@ -34,19 +41,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_right_arrow" />
-
-    <View
-        android:id="@+id/v_horizontal_line_top"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/toolbar_line_height"
-        android:background="?search_text_color"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <View
-        android:id="@+id/v_horizontal_line_bottom"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/toolbar_line_height"
-        android:background="?search_text_color"
-        app:layout_constraintBottom_toBottomOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

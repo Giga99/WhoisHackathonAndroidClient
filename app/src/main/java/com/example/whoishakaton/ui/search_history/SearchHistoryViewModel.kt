@@ -24,8 +24,10 @@ class SearchHistoryViewModel @Inject constructor(
     val searchHistory: LiveData<Resource<List<DomainHistoryUIModel>>> = _searchHistory
 
     init {
-        viewModelScope.launchWithLoadingOverlay(handler) {
-            _searchHistory.value = searchHistoryUseCase.execute()
-        }
+        getSearchHistory()
+    }
+
+    fun getSearchHistory() = viewModelScope.launchWithLoadingOverlay(handler) {
+        _searchHistory.value = searchHistoryUseCase.execute()
     }
 }

@@ -43,4 +43,10 @@ class SearchHistoryFragment : ViewBindingFragment<FragmentSearchHistoryBinding>(
             })
         }
     }
+
+    override fun onResume() {
+        super.onResume()
+
+        searchHistoryViewModel.getSearchHistory()
+    }
 }

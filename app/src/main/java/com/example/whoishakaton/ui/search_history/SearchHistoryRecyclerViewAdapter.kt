@@ -2,9 +2,9 @@ package com.example.whoishakaton.ui.search_history
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.core.view.isVisible
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
+import com.example.whoishakaton.R
 import com.example.whoishakaton.databinding.SearchHistoryItemBinding
 import com.example.whoishakaton.domain.models.DomainHistoryUIModel
 import com.example.whoishakaton.utils.getFormattedDateForMilliseconds
@@ -42,9 +42,10 @@ class SearchHistoryRecyclerViewAdapter(private val callback: (DomainHistoryUIMod
 
         with(holder.viewBinding) {
             tvDomainName.text = item.title
-            tvSearchDate.text = item.date.getFormattedDateForMilliseconds()
-
-            vHorizontalLineBottom.isVisible = position == currentList.size - 1
+            tvSearchDate.text = holder.itemView.rootView.resources.getString(
+                R.string.search_date,
+                item.date.getFormattedDateForMilliseconds()
+            )
 
             holder.itemView.setOnClickListener {
                 callback.invoke(item)
