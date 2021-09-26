@@ -8,17 +8,12 @@ data class SearchDomainRequest(
 
 @JsonClass(generateAdapter = true)
 data class SearchDomainResponse(
-    val information: DomainInformation
-)
-
-@JsonClass(generateAdapter = true)
-data class DomainInformation(
     val id: String,
     val domainId: String?,
     val name: String,
-    val createdDate: String?,
-    val updatedDate: String?,
-    val expirationDate: String?,
+    val createdDateInMiliseconds: Long?,
+    val updatedDateInMiliseconds: Long?,
+    val expirationDateInMiliseconds: Long?,
     val nameServers: String?,
     val address: String?,
     val postalCode: String?,

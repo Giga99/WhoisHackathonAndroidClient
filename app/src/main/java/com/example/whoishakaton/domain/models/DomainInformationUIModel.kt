@@ -7,9 +7,9 @@ data class DomainInformationUIModel(
     val id: String,
     val domainId: String?,
     val name: String,
-    val createdDate: String?,
-    val updatedDate: String?,
-    val expirationDate: String?,
+    val createdDateInMiliseconds: Long?,
+    val updatedDateInMiliseconds: Long?,
+    val expirationDateInMiliseconds: Long?,
     val nameServers: String?,
     val address: String?,
     val postalCode: String?,
@@ -26,9 +26,9 @@ fun DomainInformationUIModel.equal(other: DomainInformationUIModel) =
     id == other.id
             && domainId == other.domainId
             && name == other.name
-            && createdDate == other.domainId
-            && updatedDate == other.updatedDate
-            && expirationDate == other.expirationDate
+            && createdDateInMiliseconds == other.createdDateInMiliseconds
+            && updatedDateInMiliseconds == other.updatedDateInMiliseconds
+            && expirationDateInMiliseconds == other.expirationDateInMiliseconds
             && nameServers == other.nameServers
             && address == other.address
             && postalCode == other.postalCode
@@ -41,31 +41,31 @@ fun DomainInformationUIModel.equal(other: DomainInformationUIModel) =
             && whoIsResponse == other.whoIsResponse
 
 fun SearchDomainResponse.fromResponseToUIModel() = DomainInformationUIModel(
-    information.id,
-    information.domainId,
-    information.name,
-    information.createdDate,
-    information.updatedDate,
-    information.expirationDate,
-    information.nameServers,
-    information.address,
-    information.postalCode,
-    information.registarIanaId,
-    information.registarName,
-    information.url,
-    information.abuseContactEmail,
-    information.abuseContactPhone,
-    information.registrantName,
-    information.whoIsResponse,
+    id,
+    domainId,
+    name,
+    createdDateInMiliseconds,
+    updatedDateInMiliseconds,
+    expirationDateInMiliseconds,
+    nameServers,
+    address,
+    postalCode,
+    registarIanaId,
+    registarName,
+    url,
+    abuseContactEmail,
+    abuseContactPhone,
+    registrantName,
+    whoIsResponse
 )
 
 fun DomainEntity.fromEntityToUIModel() = DomainInformationUIModel(
     id,
     domainId,
     name,
-    createdDate,
-    updatedDate,
-    expirationDate,
+    createdDateInMiliseconds,
+    updatedDateInMiliseconds,
+    expirationDateInMiliseconds,
     nameServers,
     address,
     postalCode,
@@ -82,9 +82,9 @@ fun DomainInformationUIModel.fromUIModelToEntity() = DomainEntity(
     id,
     domainId,
     name,
-    createdDate,
-    updatedDate,
-    expirationDate,
+    createdDateInMiliseconds,
+    updatedDateInMiliseconds,
+    expirationDateInMiliseconds,
     nameServers,
     address,
     postalCode,

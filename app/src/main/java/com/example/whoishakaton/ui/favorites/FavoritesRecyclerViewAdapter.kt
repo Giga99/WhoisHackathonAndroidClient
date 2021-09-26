@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.ListAdapter
 import com.example.whoishakaton.R
 import com.example.whoishakaton.databinding.FavoriteDomainItemBinding
 import com.example.whoishakaton.domain.models.DomainInformationUIModel
+import com.example.whoishakaton.utils.getFormattedDateForMilliseconds
 import com.example.whoishakaton.utils.view_binding.RecyclerViewHolderBinding
 
 class FavoritesRecyclerViewAdapter(private val callback: (DomainInformationUIModel) -> Unit) :
@@ -47,10 +48,10 @@ class FavoritesRecyclerViewAdapter(private val callback: (DomainInformationUIMod
 
         with(holder.viewBinding) {
             tvDomainName.text = item.name
-            item.expirationDate?.let {
+            item.expirationDateInMiliseconds?.let {
                 tvExpirationDate.text = holder.itemView.rootView.resources.getString(
                     R.string.domain_expires,
-                    it
+                    it.getFormattedDateForMilliseconds()
                 )
 
                 tvExpirationDate.visibility = View.VISIBLE

@@ -14,9 +14,9 @@ import com.example.whoishakaton.ui.Receiver
 import com.example.whoishakaton.ui.search.SearchViewModel.AddRemoveFavoriteResult.FailedResult
 import com.example.whoishakaton.ui.search.SearchViewModel.AddRemoveFavoriteResult.SuccessfulResult
 import com.example.whoishakaton.utils.Resource
+import com.example.whoishakaton.utils.getFormattedDateForMilliseconds
 import com.example.whoishakaton.utils.view_binding.ViewBindingFragment
 import dagger.hilt.android.AndroidEntryPoint
-import java.util.*
 
 @AndroidEntryPoint
 class SearchFragment : ViewBindingFragment<FragmentSearchBinding>({
@@ -60,20 +60,22 @@ class SearchFragment : ViewBindingFragment<FragmentSearchBinding>({
                     PendingIntent.FLAG_UPDATE_CURRENT
                 )
 
-                alarmManager.set(
-                    AlarmManager.RTC_WAKEUP,
-//                    System.currentTimeMillis() + searchViewModel.domain.expirationDate,
-                    System.currentTimeMillis() + 5000,
-                    pendingIntent
-                )
+                searchViewModel.domain.expirationDateInMiliseconds?.toLong()?.let {
+                    alarmManager.set(
+                        AlarmManager.RTC_WAKEUP,
+                        it,
+                        pendingIntent
+                    )
 
-                searchViewModel.addFavorite()
+                    searchViewModel.addFavorite()
+                }
             }
 
             searchViewModel.searchDomain.observe(viewLifecycleOwner, { result ->
                 if (result is Resource.Success) {
                     tvDomainName.text = result.data.name
-                    tvDomainExpiredDate.text = result.data.expirationDate
+                    tvDomainExpiredDate.text =
+                        result.data.expirationDateInMiliseconds?.getFormattedDateForMilliseconds()
                     tvDomainAddress.text = result.data.address
                     tvDomainRegistrantName.text = result.data.registrantName
                 } else if (result is Resource.Failure) {
