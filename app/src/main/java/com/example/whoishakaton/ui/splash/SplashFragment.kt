@@ -5,9 +5,12 @@ import android.view.View
 import androidx.navigation.fragment.findNavController
 import com.example.whoishakaton.databinding.FragmentSplashBinding
 import com.example.whoishakaton.utils.safeNavigate
-import com.example.whoishakaton.utils.view_binding.MainHandler
 import com.example.whoishakaton.utils.view_binding.ViewBindingFragment
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class SplashFragment : ViewBindingFragment<FragmentSplashBinding>({
@@ -17,7 +20,8 @@ class SplashFragment : ViewBindingFragment<FragmentSplashBinding>({
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        MainHandler.post {
+        CoroutineScope(Dispatchers.Main).launch {
+            delay(5000)
             findNavController().safeNavigate(SplashFragmentDirections.actionSplashFragmentToNavigationMain())
         }
     }

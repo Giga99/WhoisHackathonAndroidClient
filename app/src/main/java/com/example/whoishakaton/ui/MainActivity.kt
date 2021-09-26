@@ -4,8 +4,10 @@ import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import androidx.activity.viewModels
 import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.whoishakaton.R
 import com.example.whoishakaton.data.remote.FirebaseRetrofitInstance
@@ -38,6 +40,15 @@ class MainActivity : Activity<ActivityMainBinding>({
             val navHostFragment =
                 supportFragmentManager.findFragmentById(R.id.fcv_nav_host_fragment) as NavHostFragment
             bottomNavigation.setupWithNavController(navHostFragment.navController)
+
+            navHostFragment.findNavController()
+                .addOnDestinationChangedListener { _, destination, _ ->
+                    when (destination.id) {
+                        R.id.homeFragment, R.id.favoritesFragment, R.id.searchHistoryFragment ->
+                            clBottomNav.visibility = View.VISIBLE
+                        else -> clBottomNav.visibility = View.GONE
+                    }
+                }
         }
     }
 }

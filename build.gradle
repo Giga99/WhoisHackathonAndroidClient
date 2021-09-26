@@ -64,4 +64,7 @@ ext {
     // Firebase
     firebaseCore = '19.0.1'
     firebaseMessaging = '22.0.0'
+
+    // Lottie
+    lottieVersion = '3.5.0'
 }

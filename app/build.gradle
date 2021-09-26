@@ -112,4 +112,7 @@ dependencies {
     // FCM
     implementation "com.google.firebase:firebase-core:$firebaseCore"
     implementation "com.google.firebase:firebase-messaging:$firebaseMessaging"
+
+    // Lottie
+    implementation "com.airbnb.android:lottie:$lottieVersion"
 }
