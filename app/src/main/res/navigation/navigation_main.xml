@@ -51,6 +51,9 @@
         <action
             android:id="@+id/action_searchFragment_to_enterEmailFragment"
             app:destination="@id/enterEmailFragment" />
+        <action
+            android:id="@+id/action_searchFragment_to_webViewFragment"
+            app:destination="@id/webViewFragment" />
     </fragment>
     <fragment
         android:id="@+id/enterEmailFragment"
@@ -59,6 +62,14 @@
         tools:layout="@layout/fragment_enter_email">
         <argument
             android:name="domain"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/webViewFragment"
+        android:name="com.example.whoishakaton.ui.webview_fragment.WebViewFragment"
+        android:label="WebViewFragment" >
+        <argument
+            android:name="url"
             app:argType="string" />
     </fragment>
 

@@ -21,3 +21,12 @@ const val CONTENT_TYPE = "application/json"
 const val TOPIC = "/topics/myTopic"
 
 const val RANDOM = "RANDOM"
+
+const val NAMECHEAP_URL = "https://www.namecheap.com"
+const val SUPERHOSTING_URL = "https://www.superhosting.rs"
+const val NIC_URL = "https://www.nic.ru"
+const val MKHOST_URL = "https://www.mkhost.com"
+const val GODADDY_URL = "https://www.godaddy.com"
+const val DOMAIN_URL = "https://www.domain.com"
+const val NAMES_URL = "https://www.names.co.uk"
+const val DOMAIN101_URL = "https://101domain.com"

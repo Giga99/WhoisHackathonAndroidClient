@@ -88,7 +88,7 @@ class SearchViewModel @Inject constructor(
         }
     }
 
-    fun addRemoveFavorite() = viewModelScope.launchWithLoadingOverlay(handler) {
+    fun addRemoveFavorite() = viewModelScope.launch {
         val result = addDomainToFavoritesUseCase.execute(domain)
 
         if (result is Resource.Success) {
@@ -98,7 +98,7 @@ class SearchViewModel @Inject constructor(
         }
     }
 
-    fun addFavorite() = viewModelScope.launchWithLoadingOverlay(handler) {
+    fun addFavorite() = viewModelScope.launch {
         val result = addFavoriteDomainUseCase.execute(domain)
 
         if (result is Resource.Success) {

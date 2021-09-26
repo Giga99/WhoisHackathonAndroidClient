@@ -54,7 +54,55 @@ class SearchFragment : ViewBindingFragment<FragmentSearchBinding>({
             }
 
             btnRentDomain.setOnClickListener {
-                // TODO go to webview client
+                if (searchFragmentArgs.domainName.contains(".com")) {
+                    findNavController().safeNavigate(
+                        SearchFragmentDirections.actionSearchFragmentToWebViewFragment(
+                            NAMECHEAP_URL
+                        )
+                    )
+                } else if (searchFragmentArgs.domainName.contains(".rs")) {
+                    findNavController().safeNavigate(
+                        SearchFragmentDirections.actionSearchFragmentToWebViewFragment(
+                            SUPERHOSTING_URL
+                        )
+                    )
+                } else if (searchFragmentArgs.domainName.contains(".ru")) {
+                    findNavController().safeNavigate(
+                        SearchFragmentDirections.actionSearchFragmentToWebViewFragment(
+                            NIC_URL
+                        )
+                    )
+                } else if (searchFragmentArgs.domainName.contains(".mk")) {
+                    findNavController().safeNavigate(
+                        SearchFragmentDirections.actionSearchFragmentToWebViewFragment(
+                            MKHOST_URL
+                        )
+                    )
+                } else if (searchFragmentArgs.domainName.contains(".org")) {
+                    findNavController().safeNavigate(
+                        SearchFragmentDirections.actionSearchFragmentToWebViewFragment(
+                            GODADDY_URL
+                        )
+                    )
+                } else if (searchFragmentArgs.domainName.contains(".net")) {
+                    findNavController().safeNavigate(
+                        SearchFragmentDirections.actionSearchFragmentToWebViewFragment(
+                            DOMAIN_URL
+                        )
+                    )
+                } else if (searchFragmentArgs.domainName.contains(".uk")) {
+                    findNavController().safeNavigate(
+                        SearchFragmentDirections.actionSearchFragmentToWebViewFragment(
+                            NAMES_URL
+                        )
+                    )
+                } else if (searchFragmentArgs.domainName.contains(".se")) {
+                    findNavController().safeNavigate(
+                        SearchFragmentDirections.actionSearchFragmentToWebViewFragment(
+                            DOMAIN101_URL
+                        )
+                    )
+                }
             }
 
             searchViewModel.searchDomain.observe(viewLifecycleOwner, { result ->
