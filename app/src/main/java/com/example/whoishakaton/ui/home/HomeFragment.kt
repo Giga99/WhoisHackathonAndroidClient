@@ -65,16 +65,19 @@ class HomeFragment : ViewBindingFragment<FragmentHomeBinding>({
                             is Success -> {
                                 adapter.submitList(result.data)
                                 llRecentSearches.isVisible = result.data.isNotEmpty()
+                                btnFeelingLucky.isVisible = result.data.isEmpty()
                             }
 
                             is Failure -> {
                                 llRecentSearches.visibility = View.GONE
+                                btnFeelingLucky.visibility = View.VISIBLE
                                 println(result.throwable)
                             }
                         }
                     })
                 } else {
                     llRecentSearches.visibility = View.GONE
+                    btnFeelingLucky.visibility = View.VISIBLE
                 }
             }
 

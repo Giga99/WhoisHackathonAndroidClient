@@ -1,9 +1,7 @@
 package com.example.whoishakaton.ui.favorites
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import androidx.core.view.isVisible
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import com.example.whoishakaton.R
@@ -14,8 +12,7 @@ import com.example.whoishakaton.utils.view_binding.RecyclerViewHolderBinding
 
 class FavoritesRecyclerViewAdapter(private val callback: (DomainInformationUIModel) -> Unit) :
     ListAdapter<DomainInformationUIModel, RecyclerViewHolderBinding<FavoriteDomainItemBinding>>(
-        object :
-            DiffUtil.ItemCallback<DomainInformationUIModel>() {
+        object : DiffUtil.ItemCallback<DomainInformationUIModel>() {
 
             override fun areItemsTheSame(
                 oldItem: DomainInformationUIModel,
@@ -53,15 +50,10 @@ class FavoritesRecyclerViewAdapter(private val callback: (DomainInformationUIMod
                     R.string.domain_expires,
                     it.getFormattedDateForMilliseconds()
                 )
-
-                tvExpirationDate.visibility = View.VISIBLE
-                tvAvailable.visibility = View.GONE
             } ?: kotlin.run {
-                tvExpirationDate.visibility = View.GONE
-                tvAvailable.visibility = View.VISIBLE
+                tvExpirationDate.text =
+                    holder.itemView.rootView.resources.getString(R.string.domain_is_available)
             }
-
-            vHorizontalLineBottom.isVisible = position == currentList.size - 1
 
             holder.itemView.setOnClickListener {
                 callback.invoke(item)

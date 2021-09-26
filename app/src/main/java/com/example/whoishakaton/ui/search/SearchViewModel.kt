@@ -67,7 +67,7 @@ class SearchViewModel @Inject constructor(
     }
 
     fun getRandomDomain() = viewModelScope.launch {
-        delay(1000)
+        delay(500)
         val result = getRandomDomainUseCase.execute()
 
         if (result is Resource.Success) {
