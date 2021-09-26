@@ -11,7 +11,7 @@
     <!-- Home region -->
     <string name="home_fragment_title">Пронађите информације о било ком домену</string>
     <string name="feeling_lucky">Изненади ме</string>
-    <string name="search_bar_hint">Претражи домен...</string>
+    <string name="search_bar_hint">Претражите домен...</string>
     <string name="search_bar_button_text">ПРЕТРАЖИ</string>
     <string name="most_searched_title">Најчешће претраживано</string>
     <!-- end region -->
@@ -22,7 +22,7 @@
     <!-- end region -->
 
     <!-- Favorites region -->
-    <string name="favorite_domains">Омиљени домени</string>
+    <string name="favorite_domains">Омиљено</string>
     <string name="domain_is_available">Домен је доступан</string>
     <string name="domain_expires">Домен истиче %1$s</string>
     <!-- end region -->

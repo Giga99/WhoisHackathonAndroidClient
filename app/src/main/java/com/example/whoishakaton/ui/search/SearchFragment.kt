@@ -121,14 +121,22 @@ class SearchFragment : ViewBindingFragment<FragmentSearchBinding>({
                     with(result.data) {
                         tvDomainName.text = name
 
-                        expirationDateInMiliseconds?.let {
+                        expirationDateInMiliseconds?.let { expired ->
                             svDomainInfo.visibility = View.VISIBLE
                             tvExpiredDate.visibility = View.VISIBLE
-                            tvExpiredDate.text = it.getFormattedDateForMilliseconds()
 
-                            createdDateInMiliseconds?.let {
+                            createdDateInMiliseconds?.let { created ->
                                 tvCreatedDate.visibility = View.VISIBLE
-                                tvCreatedDate.text = it.getFormattedDateForMilliseconds()
+                                languageViewModel.context.observe(viewLifecycleOwner, {
+                                    tvExpiredDate.text = it.resources.getString(
+                                        R.string.expired_date,
+                                        expired.getFormattedDateForMilliseconds()
+                                    )
+                                    tvCreatedDate.text = it.resources.getString(
+                                        R.string.created_date,
+                                        created.getFormattedDateForMilliseconds()
+                                    )
+                                })
                             }
 
                             address?.let {
