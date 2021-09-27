@@ -51,4 +51,10 @@ class FavoritesFragment : ViewBindingFragment<FragmentFavoritesBinding>({
             })
         }
     }
+
+    override fun onResume() {
+        super.onResume()
+
+        favoritesViewModel.getFavoriteDomains()
+    }
 }

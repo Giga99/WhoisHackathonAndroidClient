@@ -63,54 +63,63 @@ class SearchFragment : ViewBindingFragment<FragmentSearchBinding>({
             }
 
             btnRentDomain.setOnClickListener {
-                if (searchFragmentArgs.domainName.contains(".com")) {
-                    findNavController().safeNavigate(
-                        SearchFragmentDirections.actionSearchFragmentToWebViewFragment(
-                            NAMECHEAP_URL
+                when {
+                    searchViewModel.domain.name.contains(".com") -> {
+                        findNavController().safeNavigate(
+                            SearchFragmentDirections.actionSearchFragmentToWebViewFragment(
+                                NAMECHEAP_URL
+                            )
                         )
-                    )
-                } else if (searchFragmentArgs.domainName.contains(".rs")) {
-                    findNavController().safeNavigate(
-                        SearchFragmentDirections.actionSearchFragmentToWebViewFragment(
-                            SUPERHOSTING_URL
+                    }
+                    searchViewModel.domain.name.contains(".rs") -> {
+                        findNavController().safeNavigate(
+                            SearchFragmentDirections.actionSearchFragmentToWebViewFragment(
+                                SUPERHOSTING_URL
+                            )
                         )
-                    )
-                } else if (searchFragmentArgs.domainName.contains(".ru")) {
-                    findNavController().safeNavigate(
-                        SearchFragmentDirections.actionSearchFragmentToWebViewFragment(
-                            NIC_URL
+                    }
+                    searchViewModel.domain.name.contains(".ru") -> {
+                        findNavController().safeNavigate(
+                            SearchFragmentDirections.actionSearchFragmentToWebViewFragment(
+                                NIC_URL
+                            )
                         )
-                    )
-                } else if (searchFragmentArgs.domainName.contains(".mk")) {
-                    findNavController().safeNavigate(
-                        SearchFragmentDirections.actionSearchFragmentToWebViewFragment(
-                            MKHOST_URL
+                    }
+                    searchViewModel.domain.name.contains(".mk") -> {
+                        findNavController().safeNavigate(
+                            SearchFragmentDirections.actionSearchFragmentToWebViewFragment(
+                                MKHOST_URL
+                            )
                         )
-                    )
-                } else if (searchFragmentArgs.domainName.contains(".org")) {
-                    findNavController().safeNavigate(
-                        SearchFragmentDirections.actionSearchFragmentToWebViewFragment(
-                            GODADDY_URL
+                    }
+                    searchViewModel.domain.name.contains(".org") -> {
+                        findNavController().safeNavigate(
+                            SearchFragmentDirections.actionSearchFragmentToWebViewFragment(
+                                GODADDY_URL
+                            )
                         )
-                    )
-                } else if (searchFragmentArgs.domainName.contains(".net")) {
-                    findNavController().safeNavigate(
-                        SearchFragmentDirections.actionSearchFragmentToWebViewFragment(
-                            DOMAIN_URL
+                    }
+                    searchViewModel.domain.name.contains(".net") -> {
+                        findNavController().safeNavigate(
+                            SearchFragmentDirections.actionSearchFragmentToWebViewFragment(
+                                DOMAIN_URL
+                            )
                         )
-                    )
-                } else if (searchFragmentArgs.domainName.contains(".uk")) {
-                    findNavController().safeNavigate(
-                        SearchFragmentDirections.actionSearchFragmentToWebViewFragment(
-                            NAMES_URL
+                    }
+                    searchViewModel.domain.name.contains(".uk") -> {
+                        findNavController().safeNavigate(
+                            SearchFragmentDirections.actionSearchFragmentToWebViewFragment(
+                                NAMES_URL
+                            )
                         )
-                    )
-                } else if (searchFragmentArgs.domainName.contains(".se")) {
-                    findNavController().safeNavigate(
-                        SearchFragmentDirections.actionSearchFragmentToWebViewFragment(
-                            DOMAIN101_URL
+                    }
+                    searchViewModel.domain.name.contains(".se") -> {
+                        findNavController().safeNavigate(
+                            SearchFragmentDirections.actionSearchFragmentToWebViewFragment(
+                                DOMAIN101_URL
+                            )
                         )
-                    )
+                    }
                 }
             }
 
@@ -213,7 +222,7 @@ class SearchFragment : ViewBindingFragment<FragmentSearchBinding>({
                     PendingIntent.FLAG_UPDATE_CURRENT
                 )
 
-                searchViewModel.domain.expirationDateInMiliseconds?.toLong()?.let {
+                searchViewModel.domain.expirationDateInMiliseconds?.let {
                     alarmManager.set(
                         AlarmManager.RTC_WAKEUP,
                         it,
@@ -227,6 +236,7 @@ class SearchFragment : ViewBindingFragment<FragmentSearchBinding>({
             }
 
             btnEmail.setOnClickListener {
+                searchViewModel.addFavorite()
                 findNavController().safeNavigate(
                     SearchFragmentDirections.actionSearchFragmentToEnterEmailFragment(
                         searchFragmentArgs.domainName

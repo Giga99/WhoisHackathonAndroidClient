@@ -16,7 +16,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/margin_standard"
             android:fontFamily="@font/montserratsemibold"
-            android:textAllCaps="true"
+            app:textAllCaps="true"
             android:textColor="?white"
             android:textSize="@dimen/text_size_standard"
             app:layout_constraintEnd_toEndOf="parent"

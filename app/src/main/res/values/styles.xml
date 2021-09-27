@@ -2,7 +2,7 @@
 
 <resources>
     <style name="BottomNavigation" parent="Widget.MaterialComponents.BottomNavigationView.PrimarySurface">
-        <item name="android:background">?bottom_nav_background_color</item>
+        <item name="android:background">@color/bottom_nav_background_color</item>
         <item name="itemIconTint">@drawable/bottom_nav_item_color_selector</item>
         <item name="itemTextColor">@drawable/bottom_nav_item_color_selector</item>
     </style>

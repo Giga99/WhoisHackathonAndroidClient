@@ -36,6 +36,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_standard"
             android:layout_marginTop="@dimen/margin_small"
+            android:layout_marginBottom="@dimen/margin_standard"
             android:layout_marginEnd="@dimen/margin_standard"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintEnd_toEndOf="parent"

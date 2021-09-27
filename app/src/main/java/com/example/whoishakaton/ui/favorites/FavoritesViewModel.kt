@@ -31,15 +31,17 @@ class FavoritesViewModel @Inject constructor(
     val favoriteDomains: LiveData<Resource<List<DomainInformationUIModel>>> = _favoriteDomains
 
     init {
-        viewModelScope.launchWithLoadingOverlay(handler) {
-            val result = getFavoriteDomainsUseCase.execute()
+        getFavoriteDomains()
+    }
 
-            if (result is Resource.Success) {
-                favorites = result.data
-                _favoriteDomains.value = Resource.Success(result.data)
-            } else if (result is Resource.Failure) {
-                _favoriteDomains.value = result
-            }
+    fun getFavoriteDomains() = viewModelScope.launchWithLoadingOverlay(handler) {
+        val result = getFavoriteDomainsUseCase.execute()
+
+        if (result is Resource.Success) {
+            favorites = result.data
+            _favoriteDomains.value = Resource.Success(result.data)
+        } else if (result is Resource.Failure) {
+            _favoriteDomains.value = result
         }
     }
 
